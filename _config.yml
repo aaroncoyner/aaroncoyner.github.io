@@ -1,1 +1,2 @@
-plugins: [jekyll-paginate, jekyll-seo-tag]
+plugins:
+  - jekyll-seo-tag
