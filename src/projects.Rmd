@@ -1,0 +1,79 @@
+---
+title: "Projects"
+output:
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 1
+---
+
+<style>
+.title{visibility: hidden}
+</style>
+
+> Sometimes I like to do projects and post them on the internet for everyone's benefit...
+
+<br>
+<br>
+
+# Machine Learning Algorithms
+
+---
+
+### Supervised Methods
+* Perceptron
+
+### Unsupervised Methods
+* `r emo::ji("poop")` `r emo::ji("poop")` `r emo::ji("poop")` `r emo::ji("poop")` `r emo::ji("poop")`
+
+### Coming Soon(ish)
+* Neural Network
+* Gaussian Naive Bayes
+* Logistic Regression
+* Linear Regression
+* Random Forest
+* Empirical Bayes (with Discretization, Smoothing, etc.)
+* K-Means
+* K-Mode
+* K-Median
+* K-Nearest Neighbor
+* RBM / Autoencoder
+
+### Source Code
+- [https://github.com/coyneras/machine-learning](https://github.com/coyneras/machine-learning)
+
+<br>
+<br>
+
+# Raider Report Converter
+
+---
+
+### Shiny App
+- [https://aaroncoyner.shinyapps.io/report-converter](https://aaroncoyner.shinyapps.io/report-converter)
+
+### Test File
+- [https://raw.githubusercontent.com/aaroncoyner/report-converter/master/test_file.csv](https://raw.githubusercontent.com/aaroncoyner/report-converter/master/test_file.csv)
+
+### Source Code
+- [https://github.com/coyneras/report-converter](https://github.com/coyneras/report-converter)
+
+<br>
+<br>
+
+# Biostats Tutorials in R
+
+---
+
+### Available
+- [Analysis of Variance (ANOVA)](tutorials/R_Tutorial_ANOVA.html)
+- [Confidence Intervals](tutorials/R_Tutorial_ConfidenceIntervals.html)
+- [t-Tests (One-Sample, Independent-Samples, and Paired)](tutorials/R_Tutorial_tTest.html)
+
+### Coming Soon
+- Contingency Tables
+- Correlation and Regression
+- Non-Parametric Tests
+
+### Source Code
+- [https://github.com/coyneras/biostats-tutorials](https://github.com/coyneras/biostats-tutorials)

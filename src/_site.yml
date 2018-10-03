@@ -1,0 +1,23 @@
+---
+name: 'Aaron Coyner, PhD Student'
+navbar:
+  title: 'Aaron Coyner, PhD Student'
+  right:
+    - text: 'Home'
+      href: index.html
+    - text: 'Projects'
+      href: projects.html
+    - text: 'Tutorials'
+      href: tutorials.html
+    - text: 'Publications'
+      href: publications.html
+    - text: 'BioSketch'
+      href: biosketch.html
+output:
+  html_document:
+    theme: flatly
+    highlight: pygments
+    include:
+      after_body: footer.html
+    css: styles.css
+---

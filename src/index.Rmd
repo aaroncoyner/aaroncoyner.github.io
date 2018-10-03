@@ -1,0 +1,29 @@
+---
+title: 'Data Scientist -- Software Engineer -- Beer Snob'
+---
+
+<style>
+.title{text-align:center}
+body{text-align:justify}
+h1{margin-top: 36px}
+</style>
+
+<br>
+
+<div class = "row">
+  <div class = "col-md-5">
+    
+Aaron is a Bioinformatics and Computational Biomedicine [PhD Candidate](https://www.ohsu.edu/xd/education/schools/school-of-medicine/departments/clinical-departments/dmice/people/Aaron-Coyner.cfm) at Oregon Health & Science University and a National Library of Medicine (NLM) research fellow. He works closely with the [i-ROP Consortium](http://i-rop.github.io/index.html) studying retinopathy of prematurity. His dissertation work centers around the implementation and use of machine learning algorithms, specifically deep learning, for retinal fundus image quality assessment and abnormal pathological findings for telemedicine applications.
+
+Prior to beginning his PhD, he received his Bachelor of Science in Biochemistry from [Pacific Lutheran University](https://www.plu.edu/chemistry/) in Tacoma, WA, and worked as a research assistant in an ophthalmic genetics lab at the [Casey Eye Institute](https://www.ohsu.edu/xd/health/services/casey-eye/) at OHSU.
+
+Additionally, Aaron is a teaching assistant for both the PHPM 524: Introduction to Biostatistics and [MATH 630: Probability & Statistical Inference for Scientists and Engineers](https://ohsu-math630-fall-2018.netlify.com/) at OHSU.
+
+When not studying, running stats, coding, read/writing papers, or teaching, Aaron can usually be found doing the stereotypical "Portlandian" activities: enjoying an IPA with his partner, Jessica, at the dog park with his dog, Zoey, or riding around on his motorcycle, a Triumph Tiger, exploring the Pacific Northwest.
+  
+  </div>
+  <div class = "col-md-7">
+
+![](./img/headshot.jpg)
+  </div>
+</div>
