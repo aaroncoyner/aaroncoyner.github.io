@@ -24,6 +24,6 @@ When not studying, running stats, coding, read/writing papers, or teaching, Aaro
   </div>
   <div class = "col-md-7">
 
-![](./img/headshot.jpg)
+![](./images/headshot.jpg)
   </div>
 </div>

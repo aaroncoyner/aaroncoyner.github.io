@@ -8,4 +8,4 @@ h1{margin-top: 36px}
 
 <br>
 <br>
-<embed src="img/CV.pdf" width="1000" height="2300px" />
+<embed src="images/CV.pdf" width="1000" height="2300px" />

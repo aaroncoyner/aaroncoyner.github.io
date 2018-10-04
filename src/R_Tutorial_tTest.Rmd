@@ -1,0 +1,269 @@
+---
+title: 'R Tutorial: t-Tests'
+author: 'Created by Aaron Coyner'
+output:
+  html_document:
+    keep_md: FALSE
+    highlight: pygments
+    theme: flatly
+    smart: FALSE
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 2
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(error = TRUE, comment = NA, warning = FALSE, message = FALSE, tidy = FALSE, echo = TRUE)
+```
+
+
+<style>
+body {
+    font-family: "Cabin", sans-serif;
+}
+p {
+    font-family: "Cabin", sans-serif;
+}
+</style>
+
+<a href="mailto:coyner@ohsu.edu"><i class="fa fa-envelope fa-fw"></i>&nbsp; coyner@ohsu.edu</a><br>
+
+# Overview
+This tutorial provides an introduction to t-tests. A study by Goran et.al (1996) examined the accuracy of some widely used body-composition techniques for children using three different methods: dual-energy X-ray absorptiometry (DXA) technique, skin-fold thickness, and bioelectric resistance. Subjects were children between 4 and 10 years old. Data were collected on 98 subjects (49 males and 49 females). One purpose of the study is to determine whether there is a difference in fat mass measurements using DXA (considered the gold standard method) compared to the skin-fold thickness method. We also wish to determine if DXA levels are significantly different between males and females.
+
+Data sets and Rmarkdown files are available at: https://github.com/aaroncoyner/biostats-tutorials
+
+
+## Acknowledgements
+This tutorial was adapted from [Amber Lin](https://ohsu-psu-sph.org/faculty-directory/name/amber-lin/)'s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health & Science University.
+
+The template used for this tutorial is from
+[Alison Presmanes-Hill](https://github.com/apreshill/data-vis-jamboree-ggplot)
+
+
+
+# Setup
+
+## Install Packages 
+
+Do this once per machine.
+
+```{r install_packages_demo, eval=FALSE}
+install.packages('readr')
+install.packages('skimr')
+install.packages('dplyr')
+install.packages('ggplot2')
+install.packages('rcompanion')
+```
+
+## Load Packages 
+
+Do this once per R session.
+
+```{r load_packages_demo}
+library(readr)
+library(skimr)
+library(dplyr)
+library(ggplot2)
+library(rcompanion)
+```
+
+## Import Data 
+
+- Copy `body_comp.csv` to an easily accessible location
+- Use `read_csv()` from the `readr` package to import the csv
+- The argument supplied to `read_csv()` is the url or path to the data set
+- Finally, assign the data to an R object using `<-` and call that object something simple like `body`
+
+```{r load_data}
+body <- read_csv('data/body_comp.csv')
+```
+
+
+# Initial Data Analysis
+
+Use the `head()` function in your console to briefly check the structure of the data set.
+```{r head}
+head(body)
+```
+
+**Red Flag:**
+Does the number `1` for `SEX` represent males or females?  This is a good example of when value labels should be used or a data dictionary should be included!
+
+Also notice that below each column header is a description of the data type. `<dbl>` simply means that the column can take on any numeric value from $-\infty$ to $\infty$ and `<int>` indicates the same but for integers only. However, does it make sense for `SEX` to be able to take on more than 2 numbers given this data set? We can "tell" R that these are labels, rather than continuous variables by changing the data type to a `factor`.
+
+```{r }
+body$SEX = as.factor(body$SEX)
+```
+
+
+`head()` provides us with a brief overview of the structure of our data set. Let's use `skim()` to compute some summary statistics, such as the mean, standard deviation, and quartiles of each variable. We notice that the means of `DXA` and `ST` really aren't all that different, but we must determine this statistically.
+
+```{r skim}
+skim(body)
+```
+
+
+# Visualization
+
+## Box Plots
+
+We first need to stack our data so that we can create plots out of it. Then, since we are only interested in the `DXA` and `ST` variables, we filter by them. Finally, we pass the new data set to `ggplot()` and create a box plot. Upon comparison, it doesn't *appear* that the distributions are that different from one another.
+
+```{r box_plot}
+body %>%
+  stack() %>% 
+  filter(ind == 'DXA' | ind == 'ST') %>% 
+  ggplot(aes(x = ind, y = values, fill = ind)) +
+    geom_boxplot() +
+    ggtitle('Box Plot of Body Fat Measurements') +
+    xlab('Technique') +
+    ylab('Body Fat Measurement')
+```
+
+We can perform the same analysis for `DXA` measurements by `SEX`.
+```{r}
+ggplot(body, aes(x = SEX, y = DXA, fill = SEX)) +
+  geom_boxplot() +
+  ggtitle('Box Plot of DXA vs SEX') +
+  xlab('SEX') +
+  ylab('DXA')
+```
+
+
+
+
+## Density Plots
+
+Even density plots of our data suggest that these two techniques produce similar measurements. HOWEVER, note that these distributions are *not* normal!
+```{r density_plot}
+body %>%
+  stack() %>% 
+  filter(ind == 'DXA' | ind == 'ST') %>% 
+  ggplot(aes(x = values, fill = ind)) +
+    geom_density(alpha = 0.5)
+```
+
+Again, we can perform the same analysis for `DXA` measurements by `SEX`.
+```{r}
+ggplot(body, aes(x = DXA, group = SEX, fill = SEX)) +
+  geom_density(alpha = 0.5)
+```
+
+
+# t-Tests
+
+## Single-sample
+
+### HYPOTHESIS: There is a difference in fat mass measurements between DXA and the skin-fold thickness method.
+
+To conduct the analysis, we first need to generate a variable that describes the difference between `DXA` and `ST`. After, we'll can examine our tibble once more just to make sure everything worked as expected.
+
+```{r var_mut}
+body = body %>% 
+  mutate(DIFF = DXA - ST)
+
+head(body)
+```
+
+
+Let's check whether the variable `DIFF` is normally distributed. We'll do this via histograms and density plots.
+
+```{r histogram}
+ggplot(body, aes(x=DIFF)) +
+  geom_histogram(bins=9, color="darkblue", fill="lightblue")
+```
+
+```{r density_plot_DIFF}
+ggplot(body, aes(x=DIFF)) +
+  geom_density(fill="lightblue")
+```
+
+`DIFF` sure does look normally distributed. This indicates that we can conduct a one sample t-test using it.
+
+We'll now test whether `DIFF` is significantly different from 0, which is a round-about way of determining whether `DXA` is significantly different from `ST`.
+
+```{r, echo = FALSE}
+t_test <- t.test(body$DIFF, mu=0)
+```
+
+```{r}
+t.test(body$DIFF, mu=0)
+```
+
+From the output, we can see that the mean of `DIFF` for this sample is `r t_test$estimate`. The 95% confidence interval tells us that the mean of `DIFF` is likely to fall between `r t_test$conf.int[1]` and `r t_test$conf.int[2]`. The p-value of `r t_test$p.value` tells us that if the mean were 0, the probability of selecting a sample with a mean equal to this one would be approximately `r round(t_test$p.value * 100, digits = 2)`%.
+
+Since the p-value is not less than the significance level of 0.05, we cannot reject the null hypothesis that the mean is equal to 0. This means that there is no evidence that the difference between `DXA` and `ST` is significant.
+
+
+
+## Paired
+
+### HYPOTHESIS: There is a difference in fat mass measurements between DXA and the skin-fold thickness method.
+
+Remember, when we are unsure of the arguments we should pass to a function in R, we can use the `?` to open a help page (e.g. `?t.test`). We see that to perform a paired t-test, we must set `paired` equal to `TRUE`. Our results suggest that there is no difference between the two techniques!
+
+```{r}
+t.test(body$DXA, body$ST, paired=TRUE)
+```
+
+**Note**: this is equivalent to a one sample t-test comparing `DIFF` to a population mean of 0.
+
+### HYPOTHESIS: There is a difference in DXA fat mass measurements between males and females.
+
+Before we conduct our second hypothesis test, do you remember the density plots we generated earlier? They suggested that our data did not come from a normal distribution. Let's look at some Q-Q plots to confirm this.
+
+```{r}
+ggplot(body, aes(sample=DXA, group=SEX, color=SEX)) +
+  geom_qq() +
+  geom_qq_line()
+```
+
+
+It's pretty easy to see that neither `SEX == 0` nor `SEX == 1` fall on a straight line, suggesting that `DXA` is *not* normally distributed. However, we can get around this.
+
+We will transform `DXA` by conducting Tukey's Ladder of Powers to produce a more-normally distributed vector of values. As we can see from the histogram and Q-Q plot, `DXA` now appears to be normally distributed.
+
+```{r}
+transformTukey(body$DXA, plotit=TRUE, start=-1, end=2, int=0.5)
+```
+
+So, what have we done here? First, we have tested various values of $\lambda$ ranging from -1 to 2 at intervals of 0.5. When $\lambda < 0$, we transform our data via $-1 * x ^ \lambda$, when $\lambda = 0$, we transform our data via $log(x)$, and when $\lambda > 0$, we transform our data via $x ^ \lambda$. This configuration tests the following transforms: $-1/x, -1/\sqrt(x), log(x), \sqrt(x), x,~and~x^2$.
+
+The output of this function tells us that method 3, where $\lambda = 0$, maximizes the Shapiro-Wilks W statistic. In English, this means that a log-transform of this vector will produce a more-normal distribution. 
+
+We can log transform `DXA` into a log base 2, log base 3, or log base 10 variable. For ease of interpretation it is not recommended that we use natural log. Here we will transform it into a log base 2 variable.
+
+```{r}
+body$log2_DXA <- log2(body$DXA)
+```
+
+
+Now that we've morphed our data to meet the assumptions of our test, we can now conduct a 2-sample t-test. But before we do that, we must assess whether or not the variances of each group are equal. If we look at the standard deviations of the log-transformed `DXA` for the two genders, they are pretty equal.
+
+```{r}
+sd(body$log2_DXA[body$SEX == 0])
+sd(body$log2_DXA[body$SEX == 1])
+```
+
+Therefore, we can use a t-test where we treat the two variances as being equal.
+
+```{r}
+t.test(log2_DXA ~ SEX, data=body, var.equal=TRUE)
+```
+
+It appears that the log-transformed mean `DXA` levels are significantly different for males versus females ($p=0.002108$).
+
+
+## Unequal Variances
+
+### HYPOTHESIS: There is a difference in DXA fat mass measurements between males and females.
+
+So, a t-test with equal variance is fine, but let us run through a t-test with unequal variances to illustrate how to use software to conduct that test. R’s default t-test uses the unequal variance assumption. So, if we’d like to conduct a t-test with unequal variances, we actually don't have to supply a value for the `var.equal` argument at all.
+
+```{r}
+t.test(log2_DXA ~ SEX, data = body)
+```
+
+The conclusion doesn’t change, but notice that the degrees of freedom for a t-test with unequal variances are calculated using the Welch (or Satterthwaite) formula.

@@ -18,9 +18,9 @@ h1{margin-top: 36px}
 ---
 
 ### Available
-- [Analysis of Variance (ANOVA)](tutorials/R_Tutorial_ANOVA.html)
-- [Confidence Intervals](tutorials/R_Tutorial_ConfidenceIntervals.html)
-- [t-Tests (One-Sample, Independent-Samples, and Paired)](tutorials/R_Tutorial_tTest.html)
+- [Analysis of Variance (ANOVA)](R_Tutorial_ANOVA.html)
+- [Confidence Intervals](R_Tutorial_ConfidenceIntervals.html)
+- [t-Tests (One-Sample, Independent-Samples, and Paired)](R_Tutorial_tTest.html)
 
 ### Coming Soon
 - Contingency Tables
@@ -28,7 +28,7 @@ h1{margin-top: 36px}
 - Non-Parametric Tests
 
 ### Source Code
-- [https://github.com/coyneras/biostats-tutorials](https://github.com/coyneras/biostats-tutorials)
+- [https://github.com/coyneras/biostats-tutorials](https://github.com/aaroncoyner/biostats-tutorials)
 
 <br>
 <br>
