@@ -18,6 +18,7 @@ output:
     theme: flatly
     highlight: pygments
     include:
+      in_header: favicon.html
       after_body: footer.html
     css: styles.css
 ---
