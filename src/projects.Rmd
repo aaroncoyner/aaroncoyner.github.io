@@ -16,7 +16,7 @@ output:
 <br>
 <br>
 
-# Machine Learning Algorithms
+# [Machine Learning Algorithms](https://github.com/coyneras/machine-learning)
 
 ---
 
@@ -39,13 +39,10 @@ output:
 * K-Nearest Neighbor
 * RBM / Autoencoder
 
-### Source Code
-- [https://github.com/coyneras/machine-learning](https://github.com/coyneras/machine-learning)
-
 <br>
 <br>
 
-# Raider Report Converter
+# [Raider Report Converter](https://github.com/coyneras/report-converter)
 
 ---
 
@@ -55,13 +52,11 @@ output:
 ### Test File
 - [https://raw.githubusercontent.com/aaroncoyner/report-converter/master/test_file.csv](https://raw.githubusercontent.com/aaroncoyner/report-converter/master/test_file.csv)
 
-### Source Code
-- [https://github.com/coyneras/report-converter](https://github.com/coyneras/report-converter)
 
 <br>
 <br>
 
-# Biostats Tutorials in R
+# [Biostats Tutorials in R](https://github.com/coyneras/biostats-tutorials)
 
 ---
 
@@ -74,6 +69,3 @@ output:
 - Contingency Tables
 - Correlation and Regression
 - Non-Parametric Tests
-
-### Source Code
-- [https://github.com/coyneras/biostats-tutorials](https://github.com/coyneras/biostats-tutorials)
