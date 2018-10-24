@@ -588,15 +588,29 @@ $ serrage  &lt;dbl&gt; 2.343660, 2.343660, 2.343660, 2.343660, 2.343660, 2.3...<
 <h3>For a Variable</h3>
 <p>Let's compute 95% and 99% confidence intervals for the mean population age (<code>bone$age</code>). We'll use the <code>ci.mean()</code> command from <code>Publish</code>. By default, this command produces a 95% confidence interval.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ci.mean</span>(bone<span class="op">$</span>age)</code></pre></div>
+<pre><code> mean  CI-95%       
+ 48.85 [45.14;52.57]</code></pre>
 <p>Now, let's compute the 99% confidence interval. Remember that <span class="math inline">\(\alpha\)</span> is our significance level (i.e. the probability of incorrectly rejecting the null hypothesis). To obtain a 99% confidence interval, we simply set <span class="math inline">\(\alpha = 0.01\)</span>, since <span class="math inline">\(1 - confidence~level = \alpha\)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ci.mean</span>(bone<span class="op">$</span>age, <span class="dt">alpha =</span> <span class="fl">0.01</span>)</code></pre></div>
+<pre><code> mean  CI-99%       
+ 48.85 [43.88;53.82]</code></pre>
 </div>
 <div id="for-groups-within-a-variable" class="section level3">
 <h3>For Groups within a Variable</h3>
 <p>Let's compute a 95% confidence interval of the mean population age for fraternal and identical twins, denoted by the <code>zyg</code> variable. Remember, the <code>~</code> is R's way of saying &quot;by&quot;&quot; (i.e. &quot;compute this by this&quot;). So here, we compute <code>age</code> by <code>zyg</code>. Because we've only supplied R with the variables of interest, but haven't supplied the actual data set, we do so using the <code>data</code> argument.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ci.mean</span>(age <span class="op">~</span><span class="st"> </span>zyg, <span class="dt">data =</span> bone)</code></pre></div>
+<pre><code> zyg       mean  CI-95%       
+ fraternal 46.20 [40.36;52.04]
+ Identical 51.38 [46.49;56.27]</code></pre>
 <p>Theoretically, we could compute confidence intervals for age based on twin status and any other number of predictors. For example:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ci.mean</span>(age <span class="op">~</span><span class="st"> </span>zyg <span class="op">+</span><span class="st"> </span>men1, <span class="dt">data =</span> bone)</code></pre></div>
+<pre><code> men1 zyg       mean  CI-95%         
+ 0    fraternal 39.56 [33.98;45.13]  
+ 0    Identical 42.00 [37.97;46.03]  
+ 1    fraternal 54.33 [44.18;64.49]  
+ 1    Identical 57.42 [51.02;63.81]  
+ 2    fraternal 39.50 [-30.38;109.38]
+ 2    Identical 48.00 [35.29;60.71]  </code></pre>
 </div>
 </div>
 <div id="one-sided" class="section level2">
@@ -604,6 +618,9 @@ $ serrage  &lt;dbl&gt; 2.343660, 2.343660, 2.343660, 2.343660, 2.343660, 2.3...<
 <p>When we use z- or t-critical values for a one-sided 95% confidence limit, the critical values that we use are a bit different. In this instance, we are putting all 5% of the area into the lower or upper tail of the distribution depending on whether we want to calculate a one-sided lower bound or upper bound limit. For a 2-sided 95% confidence interval, we split up the area and put 2.5% in the lower and upper tails of the distribution. Refer to the image above to help visualize this idea.</p>
 <p>Therefore, to calculate a one-sided 95% confidence bound (lower or upper), we use the z- or t-critical value for a 2-sided 90% confidence limit. Let’s say that we want to calculate a one-sided 95% upper confidence bound of age by twin type (fraternal or identical).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ci.mean</span>(age <span class="op">~</span><span class="st"> </span>zyg, <span class="dt">data =</span> bone, <span class="dt">alpha =</span> <span class="fl">0.10</span>)</code></pre></div>
+<pre><code> zyg       mean  CI-90%       
+ fraternal 46.20 [41.37;51.03]
+ Identical 51.38 [47.34;55.42]</code></pre>
 <p>Here, we are only interested in the upper confidence bounds. We can interpret this output as – “Average age of the identical twins is approximately 51 years and we are 95% confident that it is, at most, 55 years”. Similarly, we can interpret the mean age of fraternal twins as – “Average age of the fraternal twins is approximately 46 years and we are 95% confident that it is, at most, 51 years.”</p>
 </div>
 </div>
