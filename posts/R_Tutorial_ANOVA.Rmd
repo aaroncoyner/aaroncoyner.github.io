@@ -2,13 +2,8 @@
 title: "R Tutorial: Analysis of Variance (ANOVA)"
 author: "Aaron Coyner"
 date: "2018-09-18"
-categories: ["R"]
-tags: ["R Markdown", "plot", "regression"]
-output:
-  blogdown::html_page:
-    toc: true
-    fig_width: 6
-    dev: "svg"
+#categories: []
+tags: ['R', 'Statistics']
 ---
 
 
@@ -17,29 +12,17 @@ output:
 knitr::opts_chunk$set(error = TRUE, comment = NA, warning = FALSE, message = FALSE, tidy = FALSE, echo = TRUE)
 ```
 
-
-<style>
-body {
-    font-family: "Cabin", sans-serif;
-}
-p {
-    font-family: "Cabin", sans-serif;
-}
-</style>
-
-<a href="mailto:coyner@ohsu.edu"><i class="fa fa-envelope fa-fw"></i>&nbsp; coyner@ohsu.edu</a><br>
+### Acknowledgements
+This tutorial was adapted from [Amber Lin's](https://ohsu-psu-sph.org/faculty-directory/name/amber-lin/) tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health & Science University.
 
 # Overview
-This tutorial provides an introduction to the analysis of variance (ANOVA). The data set we will use contains serum concentrations of high-density lipoprotein cholesterol (HDL-C) from samples of adult males who are non-smokers, light smokers, moderate smokers, and heavy smokers. We will assess whether these data provide sufficient evidence to indicate that the four populations differ with respect to mean serum concentration of HDL-C.
+This tutorial provides an introduction to the analysis of variance (ANOVA).
+The data set we will use contains serum concentrations of high-density lipoprotein cholesterol (HDL-C) from samples of adult males who are non-smokers, light smokers, moderate smokers, and heavy smokers.
+We will assess whether these data provide sufficient evidence to indicate that the four populations differ with respect to mean serum concentration of HDL-C.  
 
 Data sets and Rmarkdown files are available at: https://github.com/aaroncoyner/biostats-tutorials
 
 
-## Acknowledgements
-This tutorial was adapted from [Amber Lin](https://ohsu-psu-sph.org/faculty-directory/name/amber-lin/)'s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health & Science University.
-
-The template used for this tutorial is from
-[Alison Presmanes-Hill](https://github.com/apreshill/data-vis-jamboree-ggplot)
 
 
 

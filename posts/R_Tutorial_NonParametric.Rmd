@@ -1,31 +1,17 @@
 ---
 title: 'R Tutorial: Non-Parametric Tests'
 author: 'Created by Aaron Coyner'
-output:
-  html_document:
-    keep_md: FALSE
-    highlight: pygments
-    theme: flatly
-    smart: FALSE
-    toc: TRUE
-    toc_float: TRUE
-    toc_depth: 2
+date: "2018-09-19"
+tags: ['R', 'Statistics']
 ---
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(error = TRUE, comment = NA, warning = FALSE, message = FALSE, tidy = FALSE, echo = TRUE)
 ```
 
-<style>
-body {
-    font-family: "Cabin", sans-serif;
-}
-p {
-    font-family: "Cabin", sans-serif;
-}
-</style>
 
-<a href="mailto:coyner@ohsu.edu"><i class="fa fa-envelope fa-fw"></i>&nbsp; coyner@ohsu.edu</a><br>
+### Acknowledgements
+This tutorial was adapted from [Amber Lin's](https://ohsu-psu-sph.org/faculty-directory/name/amber-lin/) tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health & Science University.
 
 # Overview
 This tutorial provides an introduction to non-parametric tests.

@@ -11,12 +11,12 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="R Tutorial: Analysis of Variance (ANOVA)"/>
-<meta name="twitter:description" content="body { font-family: &#34;Cabin&#34;, sans-serif; } p { font-family: &#34;Cabin&#34;, sans-serif; }   coyner@ohsu.edu
-Overview This tutorial provides an introduction to the analysis of variance (ANOVA). The data set we will use contains serum concentrations of high-density lipoprotein cholesterol (HDL-C) from samples of adult males who are non-smokers, light smokers, moderate smokers, and heavy smokers. We will assess whether these data provide sufficient evidence to indicate that the four populations differ with respect to mean serum concentration of HDL-C."/>
+<meta name="twitter:description" content="Acknowledgements This tutorial was adapted from Amber Lin’s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp; Science University.
+ Overview This tutorial provides an introduction to the analysis of variance (ANOVA). The data set we will use contains serum concentrations of high-density lipoprotein cholesterol (HDL-C) from samples of adult males who are non-smokers, light smokers, moderate smokers, and heavy smokers. We will assess whether these data provide sufficient evidence to indicate that the four populations differ with respect to mean serum concentration of HDL-C."/>
 
     <meta property="og:title" content="R Tutorial: Analysis of Variance (ANOVA)" />
-<meta property="og:description" content="body { font-family: &#34;Cabin&#34;, sans-serif; } p { font-family: &#34;Cabin&#34;, sans-serif; }   coyner@ohsu.edu
-Overview This tutorial provides an introduction to the analysis of variance (ANOVA). The data set we will use contains serum concentrations of high-density lipoprotein cholesterol (HDL-C) from samples of adult males who are non-smokers, light smokers, moderate smokers, and heavy smokers. We will assess whether these data provide sufficient evidence to indicate that the four populations differ with respect to mean serum concentration of HDL-C." />
+<meta property="og:description" content="Acknowledgements This tutorial was adapted from Amber Lin’s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp; Science University.
+ Overview This tutorial provides an introduction to the analysis of variance (ANOVA). The data set we will use contains serum concentrations of high-density lipoprotein cholesterol (HDL-C) from samples of adult males who are non-smokers, light smokers, moderate smokers, and heavy smokers. We will assess whether these data provide sufficient evidence to indicate that the four populations differ with respect to mean serum concentration of HDL-C." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/r_tutorial_anova/" />
 <meta property="article:published_time" content="2018-09-18T00:00:00&#43;00:00"/>
@@ -104,6 +104,11 @@ Overview This tutorial provides an introduction to the analysis of variance (ANO
 </a>
 <style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
+<script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 
       <div class="content">
         
@@ -127,7 +132,12 @@ Overview This tutorial provides an introduction to the analysis of variance (ANO
             </span>
           </div>
           
-          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="/tags/r/">R</a>
+      <span class="separator">•</span>
+    <a href="/tags/statistics/">Statistics</a></div>
+
         </div>
       </header>
 
@@ -135,25 +145,16 @@ Overview This tutorial provides an introduction to the analysis of variance (ANO
         
 
 
-<style>
-body {
-    font-family: "Cabin", sans-serif;
-}
-p {
-    font-family: "Cabin", sans-serif;
-}
-</style>
-<p><a href="mailto:coyner@ohsu.edu"><i class="fa fa-envelope fa-fw"></i>  coyner@ohsu.edu</a><br></p>
+<div id="acknowledgements" class="section level3">
+<h3>Acknowledgements</h3>
+<p>This tutorial was adapted from <a href="https://ohsu-psu-sph.org/faculty-directory/name/amber-lin/">Amber Lin’s</a> tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp; Science University.</p>
+</div>
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>This tutorial provides an introduction to the analysis of variance (ANOVA). The data set we will use contains serum concentrations of high-density lipoprotein cholesterol (HDL-C) from samples of adult males who are non-smokers, light smokers, moderate smokers, and heavy smokers. We will assess whether these data provide sufficient evidence to indicate that the four populations differ with respect to mean serum concentration of HDL-C.</p>
+<p>This tutorial provides an introduction to the analysis of variance (ANOVA).
+The data set we will use contains serum concentrations of high-density lipoprotein cholesterol (HDL-C) from samples of adult males who are non-smokers, light smokers, moderate smokers, and heavy smokers.
+We will assess whether these data provide sufficient evidence to indicate that the four populations differ with respect to mean serum concentration of HDL-C.</p>
 <p>Data sets and Rmarkdown files are available at: <a href="https://github.com/aaroncoyner/biostats-tutorials" class="uri">https://github.com/aaroncoyner/biostats-tutorials</a></p>
-<div id="acknowledgements" class="section level2">
-<h2>Acknowledgements</h2>
-<p>This tutorial was adapted from <a href="https://ohsu-psu-sph.org/faculty-directory/name/amber-lin/">Amber Lin</a>’s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp; Science University.</p>
-<p>The template used for this tutorial is from
-<a href="https://github.com/apreshill/data-vis-jamboree-ggplot">Alison Presmanes-Hill</a></p>
-</div>
 </div>
 <div id="setup" class="section level1">
 <h1>Setup</h1>
@@ -305,7 +306,7 @@ nonsmoker-moderate  4.714286  2.2584777  7.1700937 0.0001096</code></pre>
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.src = '//' + "aaroncoyner" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();

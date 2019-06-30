@@ -11,13 +11,13 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="R Tutorial: Non-Parametric Tests"/>
-<meta name="twitter:description" content="body { font-family: &#34;Cabin&#34;, sans-serif; } p { font-family: &#34;Cabin&#34;, sans-serif; }   coyner@ohsu.edu
-Overview This tutorial provides an introduction to non-parametric tests.
+<meta name="twitter:description" content="Acknowledgements This tutorial was adapted from Amber Lin’s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp; Science University.
+ Overview This tutorial provides an introduction to non-parametric tests.
 Data Set 1: “These data appeared in a paper which reported the carbon monoxide transfer factor levels in seven smokers with chicken pox with a view to determining their risk of contracting pneumonia. The measurements were taken on entry to hospital and one week after admission."/>
 
     <meta property="og:title" content="R Tutorial: Non-Parametric Tests" />
-<meta property="og:description" content="body { font-family: &#34;Cabin&#34;, sans-serif; } p { font-family: &#34;Cabin&#34;, sans-serif; }   coyner@ohsu.edu
-Overview This tutorial provides an introduction to non-parametric tests.
+<meta property="og:description" content="Acknowledgements This tutorial was adapted from Amber Lin’s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp; Science University.
+ Overview This tutorial provides an introduction to non-parametric tests.
 Data Set 1: “These data appeared in a paper which reported the carbon monoxide transfer factor levels in seven smokers with chicken pox with a view to determining their risk of contracting pneumonia. The measurements were taken on entry to hospital and one week after admission." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/r_tutorial_nonparametric/" />
@@ -106,6 +106,11 @@ Data Set 1: “These data appeared in a paper which reported the carbon monoxide
 </a>
 <style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
+<script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 
       <div class="content">
         
@@ -129,7 +134,12 @@ Data Set 1: “These data appeared in a paper which reported the carbon monoxide
             </span>
           </div>
           
-          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="/tags/r/">R</a>
+      <span class="separator">•</span>
+    <a href="/tags/statistics/">Statistics</a></div>
+
         </div>
       </header>
 
@@ -137,15 +147,10 @@ Data Set 1: “These data appeared in a paper which reported the carbon monoxide
         
 
 
-<style>
-body {
-    font-family: "Cabin", sans-serif;
-}
-p {
-    font-family: "Cabin", sans-serif;
-}
-</style>
-<p><a href="mailto:coyner@ohsu.edu"><i class="fa fa-envelope fa-fw"></i>  coyner@ohsu.edu</a><br></p>
+<div id="acknowledgements" class="section level3">
+<h3>Acknowledgements</h3>
+<p>This tutorial was adapted from <a href="https://ohsu-psu-sph.org/faculty-directory/name/amber-lin/">Amber Lin’s</a> tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp; Science University.</p>
+</div>
 <div id="overview" class="section level1">
 <h1>Overview</h1>
 <p>This tutorial provides an introduction to non-parametric tests.</p>
@@ -385,7 +390,7 @@ W = 0.87746, p-value = 0.2154</code></pre>
 <pre><code>Error in wilcox.test(non_par_3$NITRITE[non_par_3$GROUP == &quot;negative&quot;], : object &#39;non_par_3&#39; not found</code></pre>
 <p>There is no difference in nitrite levels between the HIV positive and negative groups.</p>
 </div>
-<div id="acknowledgements" class="section level1">
+<div id="acknowledgements-1" class="section level1">
 <h1>Acknowledgements</h1>
 <p>This tutorial was adapted from <a href="https://ohsu-psu-sph.org/faculty-directory/name/amber-lin/">Amber Lin</a>’s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp; Science University.</p>
 <p>The template used for this tutorial is from
@@ -411,7 +416,7 @@ W = 0.87746, p-value = 0.2154</code></pre>
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.src = '//' + "aaroncoyner" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();

@@ -17,8 +17,8 @@
       <pubDate>Thu, 04 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/posts/r_tutorial_ttest/</guid>
-      <description>body { font-family: &#34;Cabin&#34;, sans-serif; } p { font-family: &#34;Cabin&#34;, sans-serif; }   coyner@ohsu.edu
-Overview This tutorial provides an introduction to t-tests. A study by Goran et.al (1996) examined the accuracy of some widely used body-composition techniques for children using three different methods: dual-energy X-ray absorptiometry (DXA) technique, skin-fold thickness, and bioelectric resistance. Subjects were children between 4 and 10 years old. Data were collected on 98 subjects (49 males and 49 females).</description>
+      <description>Acknowledgements This tutorial was ported to R from Amber Lin’s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp;amp; Science University.
+ Overview This tutorial provides an introduction to t-tests. A study by Goran et.al (1996) examined the accuracy of some widely used body-composition techniques for children using three different methods: dual-energy X-ray absorptiometry (DXA) technique, skin-fold thickness, and bioelectric resistance. Subjects were children between 4 and 10 years old.</description>
     </item>
     
     <item>
@@ -27,9 +27,10 @@ Overview This tutorial provides an introduction to t-tests. A study by Goran et.
       <pubDate>Wed, 26 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/posts/r_tutorial_confidenceintervals/</guid>
-      <description>body { font-family: &#34;Cabin&#34;, sans-serif; } p { font-family: &#34;Cabin&#34;, sans-serif; }   coyner@ohsu.edu
-Overview This tutorial provides an introduction to confidence intervals. Specifically, we will learn how to obtain confidence intervals for a population mean in R. Data sets and Rmarkdown files are available at: https://github.com/aaroncoyner/biostats-tutorials
-Acknowledgements This tutorial was adapted from Amber Lin’s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp;amp; Science University.</description>
+      <description>Acknowledgements This tutorial was adapted from Amber Lin’s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp;amp; Science University.
+ Overview This tutorial provides an introduction to confidence intervals. Specifically, we will learn how to obtain confidence intervals for a population mean in R. Data sets and Rmarkdown files are available at: https://github.com/aaroncoyner/biostats-tutorials
+ Setup Install Packages Do this once per machine.
+install.packages(&amp;#39;readr&amp;#39;) install.packages(&amp;#39;tidyverse&amp;#39;) install.packages(&amp;#39;skimr&amp;#39;) install.packages(&amp;#39;Publish&amp;#39;)  Load Packages Do this once per R session.</description>
     </item>
     
     <item>
@@ -38,8 +39,8 @@ Acknowledgements This tutorial was adapted from Amber Lin’s tutorials for PHPM
       <pubDate>Wed, 19 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/posts/r_tutorial_nonparametric/</guid>
-      <description>body { font-family: &#34;Cabin&#34;, sans-serif; } p { font-family: &#34;Cabin&#34;, sans-serif; }   coyner@ohsu.edu
-Overview This tutorial provides an introduction to non-parametric tests.
+      <description>Acknowledgements This tutorial was adapted from Amber Lin’s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp;amp; Science University.
+ Overview This tutorial provides an introduction to non-parametric tests.
 Data Set 1: “These data appeared in a paper which reported the carbon monoxide transfer factor levels in seven smokers with chicken pox with a view to determining their risk of contracting pneumonia. The measurements were taken on entry to hospital and one week after admission.</description>
     </item>
     
@@ -49,8 +50,8 @@ Data Set 1: “These data appeared in a paper which reported the carbon monoxide
       <pubDate>Tue, 18 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/posts/r_tutorial_anova/</guid>
-      <description>body { font-family: &#34;Cabin&#34;, sans-serif; } p { font-family: &#34;Cabin&#34;, sans-serif; }   coyner@ohsu.edu
-Overview This tutorial provides an introduction to the analysis of variance (ANOVA). The data set we will use contains serum concentrations of high-density lipoprotein cholesterol (HDL-C) from samples of adult males who are non-smokers, light smokers, moderate smokers, and heavy smokers. We will assess whether these data provide sufficient evidence to indicate that the four populations differ with respect to mean serum concentration of HDL-C.</description>
+      <description>Acknowledgements This tutorial was adapted from Amber Lin’s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp;amp; Science University.
+ Overview This tutorial provides an introduction to the analysis of variance (ANOVA). The data set we will use contains serum concentrations of high-density lipoprotein cholesterol (HDL-C) from samples of adult males who are non-smokers, light smokers, moderate smokers, and heavy smokers. We will assess whether these data provide sufficient evidence to indicate that the four populations differ with respect to mean serum concentration of HDL-C.</description>
     </item>
     
     <item>

@@ -2,28 +2,14 @@
 title: "R Tutorial: Confidence Intervals"
 author: "Aaron Coyner"
 date: "2018-09-26"
+tags: ['R', 'Statistics']
 ---
 
-<style>
-body {
-    font-family: "Cabin", sans-serif;
-}
-p {
-    font-family: "Cabin", sans-serif;
-}
-</style>
-
-<a href="mailto:coyner@ohsu.edu"><i class="fa fa-envelope fa-fw"></i>&nbsp; coyner@ohsu.edu</a><br>
+### Acknowledgements
+This tutorial was adapted from [Amber Lin](https://ohsu-psu-sph.org/faculty-directory/name/amber-lin/)'s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health & Science University.
 
 # Overview
 This tutorial provides an introduction to confidence intervals. Specifically, we will learn how to obtain confidence intervals for a population mean in R. Data sets and Rmarkdown files are available at: https://github.com/aaroncoyner/biostats-tutorials
-
-
-## Acknowledgements
-This tutorial was adapted from [Amber Lin](https://ohsu-psu-sph.org/faculty-directory/name/amber-lin/)'s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health & Science University.
-
-The template used for this tutorial is from
-[Alison Presmanes-Hill](https://github.com/apreshill/data-vis-jamboree-ggplot)
 
 
 

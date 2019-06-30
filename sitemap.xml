@@ -15,8 +15,26 @@
   </url>
   
   <url>
+    <loc>/tags/r/</loc>
+    <lastmod>2018-10-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/posts/r_tutorial_ttest/</loc>
     <lastmod>2018-10-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/statistics/</loc>
+    <lastmod>2018-10-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2018-10-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -57,11 +75,6 @@
   
   <url>
     <loc>/series/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <priority>0</priority>
   </url>
   
