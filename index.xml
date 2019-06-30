@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aaron Coyner, PhD(C)</title>
+    <link>/</link>
+    <description>Recent content on Aaron Coyner, PhD(C)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 04 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>R Tutorial: t-Tests</title>
+      <link>/posts/r_tutorial_ttest/</link>
+      <pubDate>Thu, 04 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/r_tutorial_ttest/</guid>
+      <description>body { font-family: &#34;Cabin&#34;, sans-serif; } p { font-family: &#34;Cabin&#34;, sans-serif; }   coyner@ohsu.edu
+Overview This tutorial provides an introduction to t-tests. A study by Goran et.al (1996) examined the accuracy of some widely used body-composition techniques for children using three different methods: dual-energy X-ray absorptiometry (DXA) technique, skin-fold thickness, and bioelectric resistance. Subjects were children between 4 and 10 years old. Data were collected on 98 subjects (49 males and 49 females).</description>
+    </item>
+    
+    <item>
+      <title>R Tutorial: Confidence Intervals</title>
+      <link>/posts/r_tutorial_confidenceintervals/</link>
+      <pubDate>Wed, 26 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/r_tutorial_confidenceintervals/</guid>
+      <description>body { font-family: &#34;Cabin&#34;, sans-serif; } p { font-family: &#34;Cabin&#34;, sans-serif; }   coyner@ohsu.edu
+Overview This tutorial provides an introduction to confidence intervals. Specifically, we will learn how to obtain confidence intervals for a population mean in R. Data sets and Rmarkdown files are available at: https://github.com/aaroncoyner/biostats-tutorials
+Acknowledgements This tutorial was adapted from Amber Lin’s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp;amp; Science University.</description>
+    </item>
+    
+    <item>
+      <title>R Tutorial: Non-Parametric Tests</title>
+      <link>/posts/r_tutorial_nonparametric/</link>
+      <pubDate>Wed, 19 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/r_tutorial_nonparametric/</guid>
+      <description>body { font-family: &#34;Cabin&#34;, sans-serif; } p { font-family: &#34;Cabin&#34;, sans-serif; }   coyner@ohsu.edu
+Overview This tutorial provides an introduction to non-parametric tests.
+Data Set 1: “These data appeared in a paper which reported the carbon monoxide transfer factor levels in seven smokers with chicken pox with a view to determining their risk of contracting pneumonia. The measurements were taken on entry to hospital and one week after admission.</description>
+    </item>
+    
+    <item>
+      <title>R Tutorial: Analysis of Variance (ANOVA)</title>
+      <link>/posts/r_tutorial_anova/</link>
+      <pubDate>Tue, 18 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/r_tutorial_anova/</guid>
+      <description>body { font-family: &#34;Cabin&#34;, sans-serif; } p { font-family: &#34;Cabin&#34;, sans-serif; }   coyner@ohsu.edu
+Overview This tutorial provides an introduction to the analysis of variance (ANOVA). The data set we will use contains serum concentrations of high-density lipoprotein cholesterol (HDL-C) from samples of adult males who are non-smokers, light smokers, moderate smokers, and heavy smokers. We will assess whether these data provide sufficient evidence to indicate that the four populations differ with respect to mean serum concentration of HDL-C.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/cv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>About Aaron</title>
+      <link>/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Aaron is a National Library of Medicine Pre-doctoral Fellow studying Bioinformatics and Computational Biomedicine at Oregon Health &amp;amp; Science University (OHSU). He works closely with the i-ROP Consortium studying retinopathy of prematurity. His dissertation work centers around the implementation and use of machine learning algorithms, specifically deep learning, for retinal fundus image quality assessment and abnormal pathological findings for telemedicine applications.
+Prior to beginning his PhD, he received his Bachelor of Science in Biochemistry from Pacific Lutheran University in Tacoma, WA.</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/contact/</guid>
+      <description>Follow me, @johndoe.</description>
+    </item>
+    
+    <item>
+      <title>Publications</title>
+      <link>/publications/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/publications/</guid>
+      <description>Patents  Chiang MF, Campbell JP, Ostmo S, Chan RVP, Kalpathy-Cramer J, Brown JM, Erdogmus D, Ionnidis S, Coyner AS, inventors; Oregon Health &amp;amp; Science University, assignee. Systems, Devices, and Methods for Identifying Plus Disease Using Deep Convolutional Neural Networks. United States provisional patent. 2019 March 5. Appl. No.: 62814188; 2019 March 5.  Peer-reviewed Journal Articles  Coyner AS, Swan R, Campbell JP, Ostmo S, Brown JM, Kalpathy-Cramer J, Kim SJ, Jonas KE, Chan RVP, Chiang MF.</description>
+    </item>
+    
+  </channel>
+</rss>
