@@ -18,20 +18,20 @@
 <meta property="og:description" content="Acknowledgements This tutorial was adapted from Amber Lin’s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp; Science University.
  Overview This tutorial provides an introduction to the analysis of variance (ANOVA). The data set we will use contains serum concentrations of high-density lipoprotein cholesterol (HDL-C) from samples of adult males who are non-smokers, light smokers, moderate smokers, and heavy smokers. We will assess whether these data provide sufficient evidence to indicate that the four populations differ with respect to mean serum concentration of HDL-C." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/r_tutorial_anova/" />
+<meta property="og:url" content="https://aaroncoyner.github.io/posts/r_tutorial_anova/" />
 <meta property="article:published_time" content="2018-09-18T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2018-09-18T00:00:00&#43;00:00"/>
 
 
     
-      <base href="/posts/r_tutorial_anova/">
+      <base href="https://aaroncoyner.github.io/posts/r_tutorial_anova/">
     
     <title>
   R Tutorial: Analysis of Variance (ANOVA) · Aaron Coyner, PhD(C)
 </title>
 
     
-      <link rel="canonical" href="/posts/r_tutorial_anova/">
+      <link rel="canonical" href="https://aaroncoyner.github.io/posts/r_tutorial_anova/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -41,7 +41,7 @@
     
       
       
-      <link rel="stylesheet" href="/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://aaroncoyner.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -49,13 +49,13 @@
     
 
     
-      <link rel="stylesheet" href="/css/academicons.min.css" />
+      <link rel="stylesheet" href="https://aaroncoyner.github.io/css/academicons.min.css" />
     
 
     
     
-    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://aaroncoyner.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://aaroncoyner.github.io/images/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.55.6" />
   </head>
@@ -64,7 +64,7 @@
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="/">
+    <a class="navigation-title" href="https://aaroncoyner.github.io">
       <i class="fa fa-home"></i> Aaron Coyner, PhD(C)
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -73,19 +73,19 @@
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/about/">About</a>
+            <a class="navigation-link" href="https://aaroncoyner.github.io/about/">About</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/posts/">Blog</a>
+            <a class="navigation-link" href="https://aaroncoyner.github.io/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/publications/">Publications</a>
+            <a class="navigation-link" href="https://aaroncoyner.github.io/publications/">Publications</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/cv/">BioSketch</a>
+            <a class="navigation-link" href="https://aaroncoyner.github.io/cv/">BioSketch</a>
           </li>
         
       
@@ -134,9 +134,9 @@ src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
           
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="/tags/r/">R</a>
+    <a href="https://aaroncoyner.github.io/tags/r/">R</a>
       <span class="separator">•</span>
-    <a href="/tags/statistics/">Statistics</a></div>
+    <a href="https://aaroncoyner.github.io/tags/statistics/">Statistics</a></div>
 
         </div>
       </header>
@@ -228,7 +228,7 @@ library(skimr)</code></pre>
   ggtitle(&#39;Boxplot of mean HDL-C by Smoker Status&#39;) +
   xlab(&#39;Smoking Status&#39;) +
   ylab(&#39;HDL-C [mg/dL]&#39;)</code></pre>
-<p><img src="/posts/R_Tutorial_ANOVA_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="https://aaroncoyner.github.io/posts/R_Tutorial_ANOVA_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p><strong>NOTE:</strong> <code>x = reorder(status, HDL, median)</code> simply tells R that we wish to have our x-axis be <code>status</code>, but to order groups by the values of the medians of <code>HDL</code>. Also, note that there is an outlier in the <code>light</code> group.</p>
 </div>
 <div id="density-plots" class="section level2">
@@ -240,7 +240,7 @@ library(skimr)</code></pre>
 <p>Rather than plotting each density curve on a separate plot, we overlay them so we can examine to what degree they differ. So that we can see curves that are potentially hidden by others, we set <code>alpha</code> equal to 0.5 (0: transparent, 1: opaque).</p>
 <pre class="r"><code>ggplot(smoker, aes(x = HDL, fill = status)) +
   geom_density(alpha = 0.5)</code></pre>
-<p><img src="/posts/R_Tutorial_ANOVA_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="https://aaroncoyner.github.io/posts/R_Tutorial_ANOVA_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>Again, it appears that these data have different means, but we still need to confirm this statistically!</p>
 </div>
 </div>

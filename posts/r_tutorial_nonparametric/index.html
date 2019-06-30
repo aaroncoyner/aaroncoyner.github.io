@@ -20,20 +20,20 @@ Data Set 1: “These data appeared in a paper which reported the carbon monoxide
  Overview This tutorial provides an introduction to non-parametric tests.
 Data Set 1: “These data appeared in a paper which reported the carbon monoxide transfer factor levels in seven smokers with chicken pox with a view to determining their risk of contracting pneumonia. The measurements were taken on entry to hospital and one week after admission." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/r_tutorial_nonparametric/" />
+<meta property="og:url" content="https://aaroncoyner.github.io/posts/r_tutorial_nonparametric/" />
 <meta property="article:published_time" content="2018-09-19T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2018-09-19T00:00:00&#43;00:00"/>
 
 
     
-      <base href="/posts/r_tutorial_nonparametric/">
+      <base href="https://aaroncoyner.github.io/posts/r_tutorial_nonparametric/">
     
     <title>
   R Tutorial: Non-Parametric Tests · Aaron Coyner, PhD(C)
 </title>
 
     
-      <link rel="canonical" href="/posts/r_tutorial_nonparametric/">
+      <link rel="canonical" href="https://aaroncoyner.github.io/posts/r_tutorial_nonparametric/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -43,7 +43,7 @@ Data Set 1: “These data appeared in a paper which reported the carbon monoxide
     
       
       
-      <link rel="stylesheet" href="/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://aaroncoyner.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -51,13 +51,13 @@ Data Set 1: “These data appeared in a paper which reported the carbon monoxide
     
 
     
-      <link rel="stylesheet" href="/css/academicons.min.css" />
+      <link rel="stylesheet" href="https://aaroncoyner.github.io/css/academicons.min.css" />
     
 
     
     
-    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://aaroncoyner.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://aaroncoyner.github.io/images/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.55.6" />
   </head>
@@ -66,7 +66,7 @@ Data Set 1: “These data appeared in a paper which reported the carbon monoxide
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="/">
+    <a class="navigation-title" href="https://aaroncoyner.github.io">
       <i class="fa fa-home"></i> Aaron Coyner, PhD(C)
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -75,19 +75,19 @@ Data Set 1: “These data appeared in a paper which reported the carbon monoxide
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/about/">About</a>
+            <a class="navigation-link" href="https://aaroncoyner.github.io/about/">About</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/posts/">Blog</a>
+            <a class="navigation-link" href="https://aaroncoyner.github.io/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/publications/">Publications</a>
+            <a class="navigation-link" href="https://aaroncoyner.github.io/publications/">Publications</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/cv/">BioSketch</a>
+            <a class="navigation-link" href="https://aaroncoyner.github.io/cv/">BioSketch</a>
           </li>
         
       
@@ -136,9 +136,9 @@ src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
           
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="/tags/r/">R</a>
+    <a href="https://aaroncoyner.github.io/tags/r/">R</a>
       <span class="separator">•</span>
-    <a href="/tags/statistics/">Statistics</a></div>
+    <a href="https://aaroncoyner.github.io/tags/statistics/">Statistics</a></div>
 
         </div>
       </header>
@@ -267,7 +267,7 @@ W = 0.87746, p-value = 0.2154</code></pre>
   ggtitle(&#39;Q-Q Plot&#39;) +
   xlab(&#39;Theoretical Distribution&#39;) +
   ylab(&#39;Sample Distribution&#39;)</code></pre>
-<p><img src="/posts/R_Tutorial_NonParametric_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="https://aaroncoyner.github.io/posts/R_Tutorial_NonParametric_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
 </div>
 <div id="eda" class="section level1">
@@ -319,7 +319,7 @@ W = 0.87746, p-value = 0.2154</code></pre>
 <p><strong>Packages:</strong> We will be using the <code>tidyverse</code> and <code>ggplot2</code> packages. If you have not yet installed them, please do so.</p>
 <p><strong>Data:</strong> Copy the <code>non_par_2.csv</code> dataset to a location of your choice.</p>
 <pre class="r"><code>non_par_2 = read_csv(&#39;./data/non_par_2.csv&#39;)</code></pre>
-<pre><code>Error: &#39;./data/non_par_2.csv&#39; does not exist in current working directory (&#39;/Users/coyner/Desktop/website/content/posts&#39;).</code></pre>
+<pre><code>Error: &#39;./data/non_par_2.csv&#39; does not exist in current working directory (&#39;/Users/coyner/Box/Personal/website/content/posts&#39;).</code></pre>
 </div>
 <div id="eda-1" class="section level1">
 <h1>EDA</h1>
@@ -356,7 +356,7 @@ W = 0.87746, p-value = 0.2154</code></pre>
 <p><strong>Packages:</strong> We will be using the <code>tidyverse</code> and <code>ggplot2</code> packages. If you have not yet installed them, please do so.</p>
 <p><strong>Data:</strong> Copy the <code>non_par_3.csv</code> dataset to a location of your choice.</p>
 <pre class="r"><code>non_par_3 = read_csv(&#39;./data/non_par_3.csv&#39;)</code></pre>
-<pre><code>Error: &#39;./data/non_par_3.csv&#39; does not exist in current working directory (&#39;/Users/coyner/Desktop/website/content/posts&#39;).</code></pre>
+<pre><code>Error: &#39;./data/non_par_3.csv&#39; does not exist in current working directory (&#39;/Users/coyner/Box/Personal/website/content/posts&#39;).</code></pre>
 </div>
 <div id="eda-2" class="section level1">
 <h1>EDA</h1>
