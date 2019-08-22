@@ -18,20 +18,20 @@
 <meta property="og:description" content="Data Preparation First, we’ll load the necessary libraries and the Cardiovascular Disease Risk Dataset.
 ## Install cvdRiskData using devtools::install_github(&quot;laderast/cvdRiskData&quot;) library(cvdRiskData) library(tidyverse) library(keras) library(lime) library(caret) library(ROCR) library(corrr) library(tidyquant) ## Set seed for repeatability set.seed(655) ## Load data from cvdRiskData package data(cvd_patient) ## Remove columns patientID, (binned) aged (i.e. 10-20, 21-30, etc.), and race cvd_patient &lt;- select(cvd_patient, -patientID, -age, -race) summary(cvd_patient) ## htn treat smoking t2d gender numAge ## N:310265 N:358070 N:374322 N:393906 F:243138 Min." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/lime_interpretation/" />
+<meta property="og:url" content="https://aaroncoyner.github.io/posts/lime_interpretation/" />
 <meta property="article:published_time" content="2019-08-22T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2019-08-22T00:00:00&#43;00:00"/>
 
 
     
-      <base href="/posts/lime_interpretation/">
+      <base href="https://aaroncoyner.github.io/posts/lime_interpretation/">
     
     <title>
   Tutorial: Global and Local Model Interpretation · Aaron Coyner, PhD(C)
 </title>
 
     
-      <link rel="canonical" href="/posts/lime_interpretation/">
+      <link rel="canonical" href="https://aaroncoyner.github.io/posts/lime_interpretation/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -41,7 +41,7 @@
     
       
       
-      <link rel="stylesheet" href="/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://aaroncoyner.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -49,13 +49,13 @@
     
 
     
-      <link rel="stylesheet" href="/css/academicons.min.css" />
+      <link rel="stylesheet" href="https://aaroncoyner.github.io/css/academicons.min.css" />
     
 
     
     
-    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://aaroncoyner.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://aaroncoyner.github.io/images/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.55.6" />
   </head>
@@ -64,7 +64,7 @@
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="/">
+    <a class="navigation-title" href="https://aaroncoyner.github.io">
       <i class="fa fa-home"></i> Aaron Coyner, PhD(C)
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -73,19 +73,19 @@
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/about/">About</a>
+            <a class="navigation-link" href="https://aaroncoyner.github.io/about/">About</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/posts/">Blog</a>
+            <a class="navigation-link" href="https://aaroncoyner.github.io/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/publications/">Publications</a>
+            <a class="navigation-link" href="https://aaroncoyner.github.io/publications/">Publications</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/cv/">CV</a>
+            <a class="navigation-link" href="https://aaroncoyner.github.io/cv/">CV</a>
           </li>
         
       
@@ -125,11 +125,11 @@ src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
           
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="/tags/r/">R</a>
+    <a href="https://aaroncoyner.github.io/tags/r/">R</a>
       <span class="separator">•</span>
-    <a href="/tags/statistics/">Statistics</a>
+    <a href="https://aaroncoyner.github.io/tags/statistics/">Statistics</a>
       <span class="separator">•</span>
-    <a href="/tags/interpretability/">Interpretability</a></div>
+    <a href="https://aaroncoyner.github.io/tags/interpretability/">Interpretability</a></div>
 
         </div>
       </header>
@@ -297,7 +297,7 @@ train &lt;-
 
 ## Plot the learning metrics
 plot(train)</code></pre>
-<p><img src="/posts/lime_interpretation_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="https://aaroncoyner.github.io/posts/lime_interpretation_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>We can see that, during training, the training and validation accuracy and loss metrics tracked nicely together. This suggests that the model is not overfit to the dataset. If anything, it’s slightly underfit, as suggested by the fact that the validation set accuracy is higher than the training set accuracy and the validation set loss is lower that the training set loss.</p>
 </div>
 </div>
@@ -339,7 +339,7 @@ ggplot(nn_perf_df, aes(x = x_values, y = y_values)) +
     y = &quot;Sensitivity&quot;
   ) +
   theme_light()</code></pre>
-<p><img src="/posts/lime_interpretation_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="https://aaroncoyner.github.io/posts/lime_interpretation_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>Let’s also use the <code>confusionMatrix()</code> function to evaluate model performance at the a probability threshold of 0.5. Not only does this function create a confusion matrix for us, but it also lists the model accuracy, balanced accuracy, sensitivity, specificity, and a few others.</p>
 <pre class="r"><code>## Predict the class (rather than probability) of CVD on the test dataset
 nn_classes &lt;- predict_classes(model, x_test)
@@ -351,26 +351,26 @@ nn_conf</code></pre>
 ## 
 ##           Reference
 ## Prediction     0     1
-##          0 53479  1402
-##          1 21586  8572
+##          0 54624  1517
+##          1 20441  8457
 ##                                           
-##                Accuracy : 0.7297          
-##                  95% CI : (0.7267, 0.7327)
+##                Accuracy : 0.7418          
+##                  95% CI : (0.7388, 0.7447)
 ##     No Information Rate : 0.8827          
 ##     P-Value [Acc &gt; NIR] : 1               
 ##                                           
-##                   Kappa : 0.3046          
+##                   Kappa : 0.3158          
 ##                                           
 ##  Mcnemar&#39;s Test P-Value : &lt;2e-16          
 ##                                           
-##             Sensitivity : 0.8594          
-##             Specificity : 0.7124          
-##          Pos Pred Value : 0.2842          
-##          Neg Pred Value : 0.9745          
-##              Prevalence : 0.1173          
-##          Detection Rate : 0.1008          
-##    Detection Prevalence : 0.3546          
-##       Balanced Accuracy : 0.7859          
+##             Sensitivity : 0.84790         
+##             Specificity : 0.72769         
+##          Pos Pred Value : 0.29265         
+##          Neg Pred Value : 0.97298         
+##              Prevalence : 0.11729         
+##          Detection Rate : 0.09945         
+##    Detection Prevalence : 0.33982         
+##       Balanced Accuracy : 0.78780         
 ##                                           
 ##        &#39;Positive&#39; Class : 1               
 ## </code></pre>
@@ -474,7 +474,7 @@ corrr_analysis %&gt;%
     x = &#39;CVD Risk&#39;,
     y = &#39;Feature Importance&#39;
   )</code></pre>
-<p><img src="/posts/lime_interpretation_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="https://aaroncoyner.github.io/posts/lime_interpretation_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>This plot shows that <code>numAge</code>, <code>htn</code>, <code>sbp</code>, and <code>treat</code> are correlated with <code>cvd</code>. <strong>How are <code>htn</code>, <code>sbp</code> and <code>treat</code> related?</strong> It could be argued that <code>gender</code> and <code>smoking</code> are loosely correlated with <code>cvd</code>, too. But how do we use this information? Do we just assume older people will have CVD? Older people with hypertension? Older people with hypertension who are also receiving treatment for hypertension? This plot is great for identifying the global drivers of CVD, but we need to investigate locally if we want to learn how these predictors interact.</p>
 </div>
 <div id="investigate-local-predictors" class="section level3">
@@ -516,7 +516,7 @@ plot_features(explanation) +
     title = &quot;LIME: Feature Importance Visualization&quot;,
     subtitle = &quot;Hold Out (Test) Set, 4 Cases Shown&quot;
   )</code></pre>
-<p><img src="/posts/lime_interpretation_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="https://aaroncoyner.github.io/posts/lime_interpretation_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <pre class="r"><code>test_data[samples, ]</code></pre>
 <pre><code>##        htn treat smoking t2d gender numAge bmi tchol sbp cvd
 ## 249332   Y     Y       N   N      F     65  30   242 167   Y
@@ -539,7 +539,7 @@ plot_explanations(explanation) +
     title = &quot;LIME Feature Importance Heatmap&quot;,
     subtitle = &quot;Hold Out (Test) Set, First 20 Cases Shown&quot;
   )</code></pre>
-<p><img src="/posts/lime_interpretation_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="https://aaroncoyner.github.io/posts/lime_interpretation_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 </div>
 </div>
 

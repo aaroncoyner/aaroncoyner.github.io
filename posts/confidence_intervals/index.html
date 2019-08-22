@@ -22,20 +22,20 @@ install.packages(&#39;readr&#39;) install.packages(&#39;tidyverse&#39;) install.
  Setup Install Packages Do this once per machine.
 install.packages(&#39;readr&#39;) install.packages(&#39;tidyverse&#39;) install.packages(&#39;skimr&#39;) install.packages(&#39;Publish&#39;)  Load Packages Do this once per R session." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/confidence_intervals/" />
+<meta property="og:url" content="https://aaroncoyner.github.io/posts/confidence_intervals/" />
 <meta property="article:published_time" content="2018-09-26T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2018-09-26T00:00:00&#43;00:00"/>
 
 
     
-      <base href="/posts/confidence_intervals/">
+      <base href="https://aaroncoyner.github.io/posts/confidence_intervals/">
     
     <title>
   Tutorial: Confidence Intervals · Aaron Coyner, PhD(C)
 </title>
 
     
-      <link rel="canonical" href="/posts/confidence_intervals/">
+      <link rel="canonical" href="https://aaroncoyner.github.io/posts/confidence_intervals/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -45,7 +45,7 @@ install.packages(&#39;readr&#39;) install.packages(&#39;tidyverse&#39;) install.
     
       
       
-      <link rel="stylesheet" href="/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://aaroncoyner.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -53,13 +53,13 @@ install.packages(&#39;readr&#39;) install.packages(&#39;tidyverse&#39;) install.
     
 
     
-      <link rel="stylesheet" href="/css/academicons.min.css" />
+      <link rel="stylesheet" href="https://aaroncoyner.github.io/css/academicons.min.css" />
     
 
     
     
-    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://aaroncoyner.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://aaroncoyner.github.io/images/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.55.6" />
   </head>
@@ -68,7 +68,7 @@ install.packages(&#39;readr&#39;) install.packages(&#39;tidyverse&#39;) install.
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="/">
+    <a class="navigation-title" href="https://aaroncoyner.github.io">
       <i class="fa fa-home"></i> Aaron Coyner, PhD(C)
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -77,19 +77,19 @@ install.packages(&#39;readr&#39;) install.packages(&#39;tidyverse&#39;) install.
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/about/">About</a>
+            <a class="navigation-link" href="https://aaroncoyner.github.io/about/">About</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/posts/">Blog</a>
+            <a class="navigation-link" href="https://aaroncoyner.github.io/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/publications/">Publications</a>
+            <a class="navigation-link" href="https://aaroncoyner.github.io/publications/">Publications</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/cv/">CV</a>
+            <a class="navigation-link" href="https://aaroncoyner.github.io/cv/">CV</a>
           </li>
         
       
@@ -129,9 +129,9 @@ src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
           
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="/tags/r/">R</a>
+    <a href="https://aaroncoyner.github.io/tags/r/">R</a>
       <span class="separator">•</span>
-    <a href="/tags/statistics/">Statistics</a></div>
+    <a href="https://aaroncoyner.github.io/tags/statistics/">Statistics</a></div>
 
         </div>
       </header>
@@ -251,18 +251,18 @@ $ serrage  &lt;dbl&gt; 2.343660, 2.343660, 2.343660, 2.343660, 2.343660, 2.343�
 <h2>Boxplots</h2>
 <p>We can also look at a boxplot of the age distribution by twin type. To do so, we’ll use <code>ggplot()</code>. There are a few things going on in this command, so we’ll run through them one by one just to refresh your memory. First, we are calling <code>ggplot()</code> to tell R we’d like to create a plot. Next, we tell <code>ggplot()</code> which data set we’d like to use by supplying it as the first argument. Then we specify what <code>x</code> and <code>y</code> variables from the data set we’d like to use using the <code>aes()</code> (aesthetics) command. If we stop here, <code>ggplot</code> will know what data set we want to use and what variables we wish to model, but it won’t know how we want them displayed and we’ll just get an empty plot:</p>
 <pre class="r"><code>ggplot(bone, aes(x = zyg, y = age))</code></pre>
-<p><img src="/posts/confidence_intervals_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="https://aaroncoyner.github.io/posts/confidence_intervals_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>So, we tell <code>ggplot()</code> that we’d like to use the specified variables from the specified data set to make a boxplot by adding <code>+ geom_boxplot()</code> after our call to <code>ggplot()</code>.</p>
 <pre class="r"><code>ggplot(bone, aes(x = zyg, y = age)) + 
   geom_boxplot()</code></pre>
-<p><img src="/posts/confidence_intervals_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="https://aaroncoyner.github.io/posts/confidence_intervals_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Great! But this plot is a bit…bland. Let’s take advantage of <code>ggplot()</code> and make it more aesthetically pleasing!</p>
 <pre class="r"><code>ggplot(bone, aes(x = zyg, y = age, fill = zyg)) + 
   geom_boxplot() +
   ggtitle(&quot;Boxplot of Age by Twin Type&quot;) +
   xlab(&#39;Zygote Status&#39;) +
   ylab(&#39;Age&#39;)</code></pre>
-<p><img src="/posts/confidence_intervals_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="https://aaroncoyner.github.io/posts/confidence_intervals_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
 <div id="confidence-intervals" class="section level2">
 <h2>Confidence Intervals</h2>
@@ -270,7 +270,7 @@ $ serrage  &lt;dbl&gt; 2.343660, 2.343660, 2.343660, 2.343660, 2.343660, 2.343�
 <pre class="r"><code>ggplot(data = bone, aes(x = zyg, y = age)) +
   stat_summary(geom = &quot;errorbar&quot;,
                fun.data = mean_cl_normal)</code></pre>
-<p><img src="/posts/confidence_intervals_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="https://aaroncoyner.github.io/posts/confidence_intervals_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Now we add a second <code>stat_summary()</code> argument and specify that we’d like to
 compute and represent the mean of each group as a red point on our chart.</p>
 <pre class="r"><code>ggplot(data = bone, aes(x = zyg, y = age)) +
@@ -280,7 +280,7 @@ compute and represent the mean of each group as a red point on our chart.</p>
                fun.y = mean,
                color = &quot;red&quot;,
                size = 6)</code></pre>
-<p><img src="/posts/confidence_intervals_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="https://aaroncoyner.github.io/posts/confidence_intervals_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><code>mean_cl_normal</code> computes a 95% confidence interval by default. If we want to calculate the 99% confidence interval, we make use of the <code>fun.args</code> parameter. This allows us to pass additional arguments to the function we’ve called, in the form of a list. Below, we compute the 99% confidence interval:</p>
 <pre class="r"><code>ggplot(data = bone, aes(x = zyg, y = age)) +
   stat_summary(geom = &quot;errorbar&quot;,
@@ -290,7 +290,7 @@ compute and represent the mean of each group as a red point on our chart.</p>
                fun.y = mean,
                color = &quot;red&quot;,
                size = 6)</code></pre>
-<p><img src="/posts/confidence_intervals_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="https://aaroncoyner.github.io/posts/confidence_intervals_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="confidence-intervals-1" class="section level1">

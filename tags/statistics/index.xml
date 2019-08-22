@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Statistics on Aaron Coyner, PhD(C)</title>
-    <link>/tags/statistics/</link>
+    <link>https://aaroncoyner.github.io/tags/statistics/</link>
     <description>Recent content in Statistics on Aaron Coyner, PhD(C)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 22 Aug 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/statistics/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://aaroncoyner.github.io/tags/statistics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Tutorial: Global and Local Model Interpretation</title>
-      <link>/posts/lime_interpretation/</link>
+      <link>https://aaroncoyner.github.io/posts/lime_interpretation/</link>
       <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/lime_interpretation/</guid>
+      <guid>https://aaroncoyner.github.io/posts/lime_interpretation/</guid>
       <description>Data Preparation First, we’ll load the necessary libraries and the Cardiovascular Disease Risk Dataset.
 ## Install cvdRiskData using devtools::install_github(&amp;quot;laderast/cvdRiskData&amp;quot;) library(cvdRiskData) library(tidyverse) library(keras) library(lime) library(caret) library(ROCR) library(corrr) library(tidyquant) ## Set seed for repeatability set.seed(655) ## Load data from cvdRiskData package data(cvd_patient) ## Remove columns patientID, (binned) aged (i.e. 10-20, 21-30, etc.), and race cvd_patient &amp;lt;- select(cvd_patient, -patientID, -age, -race) summary(cvd_patient) ## htn treat smoking t2d gender numAge ## N:310265 N:358070 N:374322 N:393906 F:243138 Min.</description>
     </item>
     
     <item>
       <title>Tutorial: t-Tests</title>
-      <link>/posts/t_tests/</link>
+      <link>https://aaroncoyner.github.io/posts/t_tests/</link>
       <pubDate>Thu, 04 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/posts/t_tests/</guid>
+      <guid>https://aaroncoyner.github.io/posts/t_tests/</guid>
       <description>Acknowledgements This tutorial was ported to R from Amber Lin’s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp;amp; Science University.
  Overview This tutorial provides an introduction to t-tests. A study by Goran et.al (1996) examined the accuracy of some widely used body-composition techniques for children using three different methods: dual-energy X-ray absorptiometry (DXA) technique, skin-fold thickness, and bioelectric resistance. Subjects were children between 4 and 10 years old.</description>
     </item>
     
     <item>
       <title>Tutorial: Confidence Intervals</title>
-      <link>/posts/confidence_intervals/</link>
+      <link>https://aaroncoyner.github.io/posts/confidence_intervals/</link>
       <pubDate>Wed, 26 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/posts/confidence_intervals/</guid>
+      <guid>https://aaroncoyner.github.io/posts/confidence_intervals/</guid>
       <description>Acknowledgements This tutorial was adapted from Amber Lin’s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp;amp; Science University.
  Overview This tutorial provides an introduction to confidence intervals. Specifically, we will learn how to obtain confidence intervals for a population mean in R. Data sets and Rmarkdown files are available at: https://github.com/aaroncoyner/biostats-tutorials
  Setup Install Packages Do this once per machine.
@@ -45,10 +45,10 @@ install.packages(&amp;#39;readr&amp;#39;) install.packages(&amp;#39;tidyverse&am
     
     <item>
       <title>Tutorial: Non-Parametric Tests</title>
-      <link>/posts/non_parametric/</link>
+      <link>https://aaroncoyner.github.io/posts/non_parametric/</link>
       <pubDate>Wed, 19 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/posts/non_parametric/</guid>
+      <guid>https://aaroncoyner.github.io/posts/non_parametric/</guid>
       <description>Acknowledgements This tutorial was adapted from Amber Lin’s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp;amp; Science University.
  Overview This tutorial provides an introduction to non-parametric tests.
 Data Set 1: “These data appeared in a paper which reported the carbon monoxide transfer factor levels in seven smokers with chicken pox with a view to determining their risk of contracting pneumonia. The measurements were taken on entry to hospital and one week after admission.</description>
@@ -56,10 +56,10 @@ Data Set 1: “These data appeared in a paper which reported the carbon monoxide
     
     <item>
       <title>Tutorial: Analysis of Variance (ANOVA)</title>
-      <link>/posts/anova/</link>
+      <link>https://aaroncoyner.github.io/posts/anova/</link>
       <pubDate>Tue, 18 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/posts/anova/</guid>
+      <guid>https://aaroncoyner.github.io/posts/anova/</guid>
       <description>Acknowledgements This tutorial was adapted from Amber Lin’s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp;amp; Science University.
  Overview This tutorial provides an introduction to the analysis of variance (ANOVA). The data set we will use contains serum concentrations of high-density lipoprotein cholesterol (HDL-C) from samples of adult males who are non-smokers, light smokers, moderate smokers, and heavy smokers. We will assess whether these data provide sufficient evidence to indicate that the four populations differ with respect to mean serum concentration of HDL-C.</description>
     </item>
