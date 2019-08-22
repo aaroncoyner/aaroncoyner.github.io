@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Aaron Coyner, PhD(C)</title>
-    <link>https://aaroncoyner.github.io/</link>
+    <link>/</link>
     <description>Recent content on Aaron Coyner, PhD(C)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 22 Aug 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://aaroncoyner.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Global and Local Model Interpretation</title>
-      <link>https://aaroncoyner.github.io/posts/lime_interpretation/</link>
+      <title>Tutorial: Global and Local Model Interpretation</title>
+      <link>/posts/lime_interpretation/</link>
       <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://aaroncoyner.github.io/posts/lime_interpretation/</guid>
+      <guid>/posts/lime_interpretation/</guid>
       <description>Data Preparation First, we’ll load the necessary libraries and the Cardiovascular Disease Risk Dataset.
 ## Install cvdRiskData using devtools::install_github(&amp;quot;laderast/cvdRiskData&amp;quot;) library(cvdRiskData) library(tidyverse) library(keras) library(lime) library(caret) library(ROCR) library(corrr) library(tidyquant) ## Set seed for repeatability set.seed(655) ## Load data from cvdRiskData package data(cvd_patient) ## Remove columns patientID, (binned) aged (i.e. 10-20, 21-30, etc.), and race cvd_patient &amp;lt;- select(cvd_patient, -patientID, -age, -race) summary(cvd_patient) ## htn treat smoking t2d gender numAge ## N:310265 N:358070 N:374322 N:393906 F:243138 Min.</description>
     </item>
     
     <item>
-      <title>R Tutorial: t-Tests</title>
-      <link>https://aaroncoyner.github.io/posts/r_tutorial_ttest/</link>
+      <title>Tutorial: t-Tests</title>
+      <link>/posts/t_tests/</link>
       <pubDate>Thu, 04 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://aaroncoyner.github.io/posts/r_tutorial_ttest/</guid>
+      <guid>/posts/t_tests/</guid>
       <description>Acknowledgements This tutorial was ported to R from Amber Lin’s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp;amp; Science University.
  Overview This tutorial provides an introduction to t-tests. A study by Goran et.al (1996) examined the accuracy of some widely used body-composition techniques for children using three different methods: dual-energy X-ray absorptiometry (DXA) technique, skin-fold thickness, and bioelectric resistance. Subjects were children between 4 and 10 years old.</description>
     </item>
     
     <item>
-      <title>R Tutorial: Confidence Intervals</title>
-      <link>https://aaroncoyner.github.io/posts/r_tutorial_confidenceintervals/</link>
+      <title>Tutorial: Confidence Intervals</title>
+      <link>/posts/confidence_intervals/</link>
       <pubDate>Wed, 26 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://aaroncoyner.github.io/posts/r_tutorial_confidenceintervals/</guid>
+      <guid>/posts/confidence_intervals/</guid>
       <description>Acknowledgements This tutorial was adapted from Amber Lin’s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp;amp; Science University.
  Overview This tutorial provides an introduction to confidence intervals. Specifically, we will learn how to obtain confidence intervals for a population mean in R. Data sets and Rmarkdown files are available at: https://github.com/aaroncoyner/biostats-tutorials
  Setup Install Packages Do this once per machine.
@@ -44,69 +44,60 @@ install.packages(&amp;#39;readr&amp;#39;) install.packages(&amp;#39;tidyverse&am
     </item>
     
     <item>
-      <title>R Tutorial: Non-Parametric Tests</title>
-      <link>https://aaroncoyner.github.io/posts/r_tutorial_nonparametric/</link>
+      <title>Tutorial: Non-Parametric Tests</title>
+      <link>/posts/non_parametric/</link>
       <pubDate>Wed, 19 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://aaroncoyner.github.io/posts/r_tutorial_nonparametric/</guid>
+      <guid>/posts/non_parametric/</guid>
       <description>Acknowledgements This tutorial was adapted from Amber Lin’s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp;amp; Science University.
  Overview This tutorial provides an introduction to non-parametric tests.
 Data Set 1: “These data appeared in a paper which reported the carbon monoxide transfer factor levels in seven smokers with chicken pox with a view to determining their risk of contracting pneumonia. The measurements were taken on entry to hospital and one week after admission.</description>
     </item>
     
     <item>
-      <title>R Tutorial: Analysis of Variance (ANOVA)</title>
-      <link>https://aaroncoyner.github.io/posts/r_tutorial_anova/</link>
+      <title>Tutorial: Analysis of Variance (ANOVA)</title>
+      <link>/posts/anova/</link>
       <pubDate>Tue, 18 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://aaroncoyner.github.io/posts/r_tutorial_anova/</guid>
+      <guid>/posts/anova/</guid>
       <description>Acknowledgements This tutorial was adapted from Amber Lin’s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp;amp; Science University.
  Overview This tutorial provides an introduction to the analysis of variance (ANOVA). The data set we will use contains serum concentrations of high-density lipoprotein cholesterol (HDL-C) from samples of adult males who are non-smokers, light smokers, moderate smokers, and heavy smokers. We will assess whether these data provide sufficient evidence to indicate that the four populations differ with respect to mean serum concentration of HDL-C.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://aaroncoyner.github.io/cv/</link>
+      <link>/cv/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://aaroncoyner.github.io/cv/</guid>
+      <guid>/cv/</guid>
       <description></description>
     </item>
     
     <item>
-      <title></title>
-      <link>https://aaroncoyner.github.io/posts/lime_interpretation.nb/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://aaroncoyner.github.io/posts/lime_interpretation.nb/</guid>
-      <description>Global and Local Model Interpretation /*! jQuery v1.11.3 | (c) 2005, 2015 jQuery Foundation, Inc. | jquery.org/license */ !function(a,b){&#34;object&#34;==typeof module&amp;&amp;&#34;object&#34;==typeof module.exports?module.exports=a.document?b(a,!0):function(a){if(!a.document)throw new Error(&#34;jQuery requires a window with a document&#34;);return b(a)}:b(a)}(&#34;undefined&#34;!=typeof window?window:this,function(a,b){var c=[],d=c.slice,e=c.concat,f=c.push,g=c.indexOf,h={},i=h.toString,j=h.hasOwnProperty,k={},l=&#34;1.11.3&#34;,m=function(a,b){return new m.fn.init(a,b)},n=/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,o=/^-ms-/,p=/-([\da-z])/gi,q=function(a,b){return b.toUpperCase()};m.fn=m.prototype={jquery:l,constructor:m,selector:&#34;&#34;,length:0,toArray:function(){return d.call(this)},get:function(a){return null!=a?0a?this[a+this.length]:this[a]:d.call(this)},pushStack:function(a){var b=m.merge(this.constructor(),a);return b.prevObject=this,b.context=this.context,b},each:function(a,b){return m.each(this,a,b)},map:function(a){return this.pushStack(m.map(this,function(b,c){return a.call(b,c,b)}))},slice:function(){return this.pushStack(d.apply(this,arguments))},first:function(){return this.eq(0)},last:function(){return this.eq(-1)},eq:function(a){var b=this.length,c=+a+(0a?b:0);return this.pushStack(c=0&amp;&amp;bc?[this[c]]:[])},end:function(){return this.prevObject||this.constructor(null)},push:f,sort:c.sort,splice:c.splice},m.extend=m.fn.extend=function(){var a,b,c,d,e,f,g=arguments[0]||{},h=1,i=arguments.length,j=!1;for(&#34;boolean&#34;==typeof g&amp;&amp;(j=g,g=arguments[h]||{},h++),&#34;object&#34;==typeof g||m.isFunction(g)||(g={}),h===i&amp;&amp;(g=this,h--);ih;h++)if(null!=(e=arguments[h]))for(d in e)a=g[d],c=e[d],g!==c&amp;&amp;(j&amp;&amp;c&amp;&amp;(m.isPlainObject(c)||(b=m.isArray(c)))?(b?(b=!1,f=a&amp;&amp;m.isArray(a)?a:[]):f=a&amp;&amp;m.isPlainObject(a)?a:{},g[d]=m.extend(j,f,c)):void 0!==c&amp;&amp;(g[d]=c));return g},m.extend({expando:&#34;jQuery&#34;+(l+Math.random()).replace(/\D/g,&#34;&#34;),isReady:!0,error:function(a){throw new Error(a)},noop:function(){},isFunction:function(a){return&#34;function&#34;===m.type(a)},isArray:Array.isArray||function(a){return&#34;array&#34;===m.type(a)},isWindow:function(a){return null!=a&amp;&amp;a==a.window},isNumeric:function(a){return!m.isArray(a)&amp;&amp;a-parseFloat(a)+1=0},isEmptyObject:function(a){var b;for(b in a)return!1;return!0},isPlainObject:function(a){var b;if(!a||&#34;object&#34;!==m.type(a)||a.nodeType||m.isWindow(a))return!1;try{if(a.constructor&amp;&amp;!j.call(a,&#34;constructor&#34;)&amp;&amp;!j.call(a.constructor.prototype,&#34;isPrototypeOf&#34;))return!1}catch(c){return!1}if(k.ownLast)for(b in a)return j.call(a,b);for(b in a);return void 0===b||j.call(a,b)},type:function(a){return null==a?</description>
-    </item>
-    
-    <item>
       <title>About Aaron</title>
-      <link>https://aaroncoyner.github.io/about/</link>
+      <link>/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://aaroncoyner.github.io/about/</guid>
+      <guid>/about/</guid>
       <description>Aaron is a National Library of Medicine Pre-doctoral Fellow studying Bioinformatics and Computational Biomedicine at Oregon Health &amp;amp; Science University (OHSU). He works closely with the i-ROP Consortium studying retinopathy of prematurity. His dissertation work centers around the implementation and use of machine learning algorithms, specifically deep learning, for retinal fundus image quality assessment and abnormal pathological findings for telemedicine applications.
 Prior to beginning his PhD, he received his Bachelor of Science in Biochemistry from Pacific Lutheran University in Tacoma, WA.</description>
     </item>
     
     <item>
       <title>Contact</title>
-      <link>https://aaroncoyner.github.io/contact/</link>
+      <link>/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://aaroncoyner.github.io/contact/</guid>
+      <guid>/contact/</guid>
       <description>Follow me, @johndoe.</description>
     </item>
     
     <item>
       <title>Publications</title>
-      <link>https://aaroncoyner.github.io/publications/</link>
+      <link>/publications/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://aaroncoyner.github.io/publications/</guid>
+      <guid>/publications/</guid>
       <description>Patents  Chiang MF, Campbell JP, Ostmo S, Chan RVP, Kalpathy-Cramer J, Brown JM, Erdogmus D, Ionnidis S, Coyner AS, inventors; Oregon Health &amp;amp; Science University, assignee. Systems, Devices, and Methods for Identifying Plus Disease Using Deep Convolutional Neural Networks. United States provisional patent. 2019 March 5. Appl. No.: 62814188; 2019 March 5.  Peer-reviewed Journal Articles  Coyner AS, Swan R, Campbell JP, Ostmo S, Brown JM, Kalpathy-Cramer J, Kim SJ, Jonas KE, Chan RVP, Chiang MF.</description>
     </item>
     

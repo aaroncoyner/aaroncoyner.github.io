@@ -1,13 +1,8 @@
 ---
-title: "Global and Local Model Interpretation"
+title: "Tutorial: Global and Local Model Interpretation"
 author: "[Aaron Coyner](https://github.com/aaroncoyner/)"
-date: "`r Sys.Date()`"
+date: "2019-08-22"
 tags: ['R', 'Statistics', 'Interpretability']
-output: 
-  html_notebook:
-    toc: true
-    toc_depth: 3
-    toc_float: true
 ---
 
 

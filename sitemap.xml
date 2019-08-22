@@ -3,94 +3,89 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://aaroncoyner.github.io/</loc>
+    <loc>/</loc>
     <lastmod>2019-08-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://aaroncoyner.github.io/posts/lime_interpretation/</loc>
-    <lastmod>2019-08-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aaroncoyner.github.io/tags/interpretability/</loc>
+    <loc>/tags/interpretability/</loc>
     <lastmod>2019-08-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://aaroncoyner.github.io/posts/</loc>
+    <loc>/posts/</loc>
     <lastmod>2019-08-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://aaroncoyner.github.io/tags/r/</loc>
+    <loc>/tags/r/</loc>
     <lastmod>2019-08-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://aaroncoyner.github.io/tags/statistics/</loc>
+    <loc>/tags/statistics/</loc>
     <lastmod>2019-08-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://aaroncoyner.github.io/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2019-08-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://aaroncoyner.github.io/posts/r_tutorial_ttest/</loc>
+    <loc>/posts/lime_interpretation/</loc>
+    <lastmod>2019-08-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/t_tests/</loc>
     <lastmod>2018-10-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://aaroncoyner.github.io/posts/r_tutorial_confidenceintervals/</loc>
+    <loc>/posts/confidence_intervals/</loc>
     <lastmod>2018-09-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://aaroncoyner.github.io/posts/r_tutorial_nonparametric/</loc>
+    <loc>/posts/non_parametric/</loc>
     <lastmod>2018-09-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://aaroncoyner.github.io/posts/r_tutorial_anova/</loc>
+    <loc>/posts/anova/</loc>
     <lastmod>2018-09-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://aaroncoyner.github.io/cv/</loc>
+    <loc>/cv/</loc>
   </url>
   
   <url>
-    <loc>https://aaroncoyner.github.io/posts/lime_interpretation.nb/</loc>
+    <loc>/about/</loc>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://aaroncoyner.github.io/about/</loc>
+    <loc>/contact/</loc>
   </url>
   
   <url>
-    <loc>https://aaroncoyner.github.io/categories/</loc>
-    <priority>0</priority>
+    <loc>/publications/</loc>
   </url>
   
   <url>
-    <loc>https://aaroncoyner.github.io/contact/</loc>
-  </url>
-  
-  <url>
-    <loc>https://aaroncoyner.github.io/publications/</loc>
-  </url>
-  
-  <url>
-    <loc>https://aaroncoyner.github.io/series/</loc>
+    <loc>/series/</loc>
     <priority>0</priority>
   </url>
   

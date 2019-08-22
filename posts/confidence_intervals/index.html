@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Aaron Coyner">
+    <meta name="description" content="Aaron Coyner&#39;s Personal Website">
+    <meta name="keywords" content="bioinformatics, computational biology, machine learning, personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Tutorial: Confidence Intervals"/>
+<meta name="twitter:description" content="Acknowledgements This tutorial was adapted from Amber Lin’s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp; Science University.
+ Overview This tutorial provides an introduction to confidence intervals. Specifically, we will learn how to obtain confidence intervals for a population mean in R. Data sets and Rmarkdown files are available at: https://github.com/aaroncoyner/biostats-tutorials
+ Setup Install Packages Do this once per machine.
+install.packages(&#39;readr&#39;) install.packages(&#39;tidyverse&#39;) install.packages(&#39;skimr&#39;) install.packages(&#39;Publish&#39;)  Load Packages Do this once per R session."/>
+
+    <meta property="og:title" content="Tutorial: Confidence Intervals" />
+<meta property="og:description" content="Acknowledgements This tutorial was adapted from Amber Lin’s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp; Science University.
+ Overview This tutorial provides an introduction to confidence intervals. Specifically, we will learn how to obtain confidence intervals for a population mean in R. Data sets and Rmarkdown files are available at: https://github.com/aaroncoyner/biostats-tutorials
+ Setup Install Packages Do this once per machine.
+install.packages(&#39;readr&#39;) install.packages(&#39;tidyverse&#39;) install.packages(&#39;skimr&#39;) install.packages(&#39;Publish&#39;)  Load Packages Do this once per R session." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/confidence_intervals/" />
+<meta property="article:published_time" content="2018-09-26T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2018-09-26T00:00:00&#43;00:00"/>
+
+
+    
+      <base href="/posts/confidence_intervals/">
+    
+    <title>
+  Tutorial: Confidence Intervals · Aaron Coyner, PhD(C)
+</title>
+
+    
+      <link rel="canonical" href="/posts/confidence_intervals/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="/css/academicons.min.css" />
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.55.6" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      <i class="fa fa-home"></i> Aaron Coyner, PhD(C)
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/publications/">Publications</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/cv/">CV</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Tutorial: Confidence Intervals</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2018-09-26T00:00:00Z'>
+                September 26, 2018
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              10 minutes read
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="/tags/r/">R</a>
+      <span class="separator">•</span>
+    <a href="/tags/statistics/">Statistics</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+
+
+<div id="acknowledgements" class="section level3">
+<h3>Acknowledgements</h3>
+<p>This tutorial was adapted from <a href="https://ohsu-psu-sph.org/faculty-directory/name/amber-lin/">Amber Lin</a>’s tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health &amp; Science University.</p>
+</div>
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>This tutorial provides an introduction to confidence intervals. Specifically, we will learn how to obtain confidence intervals for a population mean in R. Data sets and Rmarkdown files are available at: <a href="https://github.com/aaroncoyner/biostats-tutorials" class="uri">https://github.com/aaroncoyner/biostats-tutorials</a></p>
+</div>
+<div id="setup" class="section level1">
+<h1>Setup</h1>
+<div id="install-packages" class="section level2">
+<h2>Install Packages</h2>
+<p>Do this once per machine.</p>
+<pre class="r"><code>install.packages(&#39;readr&#39;)
+install.packages(&#39;tidyverse&#39;)
+install.packages(&#39;skimr&#39;)
+install.packages(&#39;Publish&#39;)</code></pre>
+</div>
+<div id="load-packages" class="section level2">
+<h2>Load Packages</h2>
+<p>Do this once per R session.</p>
+<pre class="r"><code>library(readr)
+library(tidyverse)
+library(skimr)</code></pre>
+<pre><code>Error in library(skimr): there is no package called &#39;skimr&#39;</code></pre>
+<pre class="r"><code>library(Publish)</code></pre>
+<pre><code>Error in library(Publish): there is no package called &#39;Publish&#39;</code></pre>
+</div>
+<div id="import-data" class="section level2">
+<h2>Import Data</h2>
+<ul>
+<li>Copy <code>bone_density.csv</code> to an easily accessible location</li>
+<li>Use <code>read_csv()</code> from the <code>readr</code> package to import the csv</li>
+<li>The argument supplied to <code>read_csv()</code> is the url or path to the dataset</li>
+<li>Finally, assign the data to an R object using <code>&lt;-</code> and call that object something simple like <code>bone</code></li>
+</ul>
+<pre class="r"><code>bone &lt;- read_csv(&#39;data/bone_density.csv&#39;)</code></pre>
+</div>
+</div>
+<div id="initial-data-analysis" class="section level1">
+<h1>Initial Data Analysis</h1>
+<div id="base-r" class="section level2">
+<h2>Base R</h2>
+<p>Use the <code>head()</code> function in your console to briefly check the structure of the data set.</p>
+<pre class="r"><code>head(bone)</code></pre>
+<pre><code># A tibble: 6 x 32
+       id   age zyg     ht1   wt1  tea1  cof1  alc1  cur1  men1  pyr1   ls1
+    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 1479401    36 Iden…   162    55     7    14     2     0     0   0    0.73
+2 1521701    44 Iden…   167    60     0    28    23    22     0   0    0.77
+3 1248202    73 Iden…   160    76    42    14    14     8     1  25    0.76
+4 1494101    47 Iden…   149    61     0    42     2     3     1  12    0.71
+5 1034301    61 Iden…   159    62    56     0     0     0     1   0    0.81
+6 1628601    53 Iden…   161    68    35    35     0     0     1  24.6  0.82
+# … with 20 more variables: fn1 &lt;dbl&gt;, fs1 &lt;dbl&gt;, ht2 &lt;dbl&gt;, wt2 &lt;dbl&gt;,
+#   tea2 &lt;dbl&gt;, cof2 &lt;dbl&gt;, alc2 &lt;dbl&gt;, cur2 &lt;dbl&gt;, men2 &lt;dbl&gt;,
+#   pyr2 &lt;dbl&gt;, ls2 &lt;dbl&gt;, fn2 &lt;dbl&gt;, fs2 &lt;dbl&gt;, fndiff12 &lt;dbl&gt;,
+#   fndiff &lt;dbl&gt;, FSDIFF &lt;dbl&gt;, meanage &lt;dbl&gt;, stdage &lt;dbl&gt;, samp &lt;dbl&gt;,
+#   serrage &lt;dbl&gt;</code></pre>
+<p>As you can see, <code>head()</code> cannot display all of our variables! So we need to use some tools that are designed for larger data sets and that are a bit more descriptive…</p>
+</div>
+<div id="tidyverse-skimr" class="section level2">
+<h2>tidyverse + skimr</h2>
+<p>Glimpse essentially just provides us with a better view of our data than <code>head()</code>.</p>
+<pre class="r"><code>glimpse(bone)</code></pre>
+<pre><code>Observations: 41
+Variables: 32
+$ id       &lt;dbl&gt; 1479401, 1521701, 1248202, 1494101, 1034301, 1628601, 1…
+$ age      &lt;dbl&gt; 36, 44, 73, 47, 61, 53, 49, 55, 72, 44, 52, 58, 72, 47,…
+$ zyg      &lt;chr&gt; &quot;Identical&quot;, &quot;Identical&quot;, &quot;Identical&quot;, &quot;Identical&quot;, &quot;Id…
+$ ht1      &lt;dbl&gt; 162, 167, 160, 149, 159, 161, 164, 165, 154, 151, 157, …
+$ wt1      &lt;dbl&gt; 55, 60, 76, 61, 62, 68, 72, 68, 81, 48, 53, 61, 48, 65,…
+$ tea1     &lt;dbl&gt; 7, 0, 42, 0, 56, 35, 21, 56, 14, 12, 28, 0, 14, 14, 0, …
+$ cof1     &lt;dbl&gt; 14, 28, 14, 42, 0, 35, 14, 0, 7, 0, 28, 21, 56, 7, 21, …
+$ alc1     &lt;dbl&gt; 2, 23, 14, 2, 0, 0, 9, 2, 0, 0, 1, 0, 0, 2, 0, 10, 9, 1…
+$ cur1     &lt;dbl&gt; 0, 22, 8, 3, 0, 0, 12, 3, 0, 0, 1, 0, 0, 2, 0, 15, 8, 1…
+$ men1     &lt;dbl&gt; 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 2, 0, 0, 1, 0, 0…
+$ pyr1     &lt;dbl&gt; 0.00, 0.00, 25.00, 12.00, 0.00, 24.65, 19.00, 0.00, 0.0…
+$ ls1      &lt;dbl&gt; 0.73, 0.77, 0.76, 0.71, 0.81, 0.82, 0.67, 0.75, 0.71, 0…
+$ fn1      &lt;dbl&gt; 0.64, 0.66, 0.56, 0.61, 0.64, 0.69, 0.74, 0.59, 0.55, 0…
+$ fs1      &lt;dbl&gt; 1.09, 1.10, 1.05, 1.09, 1.12, 1.11, 1.14, 1.14, 0.93, 1…
+$ ht2      &lt;dbl&gt; 163, 167, 161, 154, 162, 161, 164, 165, 160, 153, 160, …
+$ wt2      &lt;dbl&gt; 54, 43, 76, 94, 58, 60, 68, 71, 80, 52, 55, 73, 50, 62,…
+$ tea2     &lt;dbl&gt; 0, 0, 7, 0, 21, 0, 21, 21, 0, 91, 28, 0, 14, 0, 0, 7, 1…
+$ cof2     &lt;dbl&gt; 35, 28, 7, 0, 35, 99, 12, 28, 0, 0, 0, 14, 42, 28, 28, …
+$ alc2     &lt;dbl&gt; 0, 13, 14, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 14, 0, 14, 9,…
+$ cur2     &lt;dbl&gt; 0, 20, 10, 1, 0, 1, 11, 1, 0, 0, 3, 2, 0, 13, 0, 10, 8,…
+$ men2     &lt;dbl&gt; 0, 0, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0, 0, 0, 1, 0, 0…
+$ pyr2     &lt;dbl&gt; 25.50, 30.00, 40.00, 20.00, 29.75, 30.00, 36.30, 20.25,…
+$ ls2      &lt;dbl&gt; 0.70, 0.71, 0.66, 0.76, 0.85, 0.77, 0.74, 0.64, 0.63, 0…
+$ fn2      &lt;dbl&gt; 0.61, 0.61, 0.49, 0.66, 0.69, 0.67, 0.74, 0.65, 0.56, 0…
+$ fs2      &lt;dbl&gt; 1.20, 0.96, 1.04, 0.99, 1.03, 1.08, 1.10, 1.15, 1.01, 0…
+$ fndiff12 &lt;dbl&gt; 0.03, 0.05, -0.07, -0.05, -0.05, -0.02, 0.00, -0.06, -0…
+$ fndiff   &lt;dbl&gt; 0.03, 0.05, -0.07, -0.05, -0.05, -0.02, 0.00, -0.06, -0…
+$ FSDIFF   &lt;dbl&gt; -0.11, 0.14, -0.01, 0.10, 0.09, -0.03, 0.04, -0.01, -0.…
+$ meanage  &lt;dbl&gt; 51.38095, 51.38095, 51.38095, 51.38095, 51.38095, 51.38…
+$ stdage   &lt;dbl&gt; 10.74000, 10.74000, 10.74000, 10.74000, 10.74000, 10.74…
+$ samp     &lt;dbl&gt; 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21,…
+$ serrage  &lt;dbl&gt; 2.343660, 2.343660, 2.343660, 2.343660, 2.343660, 2.343…</code></pre>
+<p>However, <code>skim()</code> computes summary statistics for us, as well. For instance, we get the mean, standard deviation, and quartiles for each variable. It even plots mini histograms for us!</p>
+<pre class="r"><code>skim(bone)</code></pre>
+<pre><code>Error in skim(bone): could not find function &quot;skim&quot;</code></pre>
+</div>
+</div>
+<div id="visualization" class="section level1">
+<h1>Visualization</h1>
+<p>Now that we’ve reviewed some summary statistics, the next step is to visualize our data. This will give us a better idea of the spread of the data for our variables of interest.</p>
+<div id="boxplots" class="section level2">
+<h2>Boxplots</h2>
+<p>We can also look at a boxplot of the age distribution by twin type. To do so, we’ll use <code>ggplot()</code>. There are a few things going on in this command, so we’ll run through them one by one just to refresh your memory. First, we are calling <code>ggplot()</code> to tell R we’d like to create a plot. Next, we tell <code>ggplot()</code> which data set we’d like to use by supplying it as the first argument. Then we specify what <code>x</code> and <code>y</code> variables from the data set we’d like to use using the <code>aes()</code> (aesthetics) command. If we stop here, <code>ggplot</code> will know what data set we want to use and what variables we wish to model, but it won’t know how we want them displayed and we’ll just get an empty plot:</p>
+<pre class="r"><code>ggplot(bone, aes(x = zyg, y = age))</code></pre>
+<p><img src="/posts/confidence_intervals_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>So, we tell <code>ggplot()</code> that we’d like to use the specified variables from the specified data set to make a boxplot by adding <code>+ geom_boxplot()</code> after our call to <code>ggplot()</code>.</p>
+<pre class="r"><code>ggplot(bone, aes(x = zyg, y = age)) + 
+  geom_boxplot()</code></pre>
+<p><img src="/posts/confidence_intervals_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Great! But this plot is a bit…bland. Let’s take advantage of <code>ggplot()</code> and make it more aesthetically pleasing!</p>
+<pre class="r"><code>ggplot(bone, aes(x = zyg, y = age, fill = zyg)) + 
+  geom_boxplot() +
+  ggtitle(&quot;Boxplot of Age by Twin Type&quot;) +
+  xlab(&#39;Zygote Status&#39;) +
+  ylab(&#39;Age&#39;)</code></pre>
+<p><img src="/posts/confidence_intervals_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+<div id="confidence-intervals" class="section level2">
+<h2>Confidence Intervals</h2>
+<p>Again, we supply our basic arguments to <code>ggplot()</code>. Using the <code>stat_summary()</code> argument, we tell <code>ggplot()</code> that we’d like to compute both the mean and confidence interval for each group. In the first <code>stat_summary()</code> argument, we ask <code>ggplot()</code> to compute the 95% confidence interval using the <code>mean_cl_normal</code> function and represent it as error bars. We use the <code>fun.data</code> argument (rather than <code>fun.y</code>) because we wish to return a set of numbers (the high and low of each interval) rather than a single number (such as the mean).</p>
+<pre class="r"><code>ggplot(data = bone, aes(x = zyg, y = age)) +
+  stat_summary(geom = &quot;errorbar&quot;,
+               fun.data = mean_cl_normal)</code></pre>
+<p><img src="/posts/confidence_intervals_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Now we add a second <code>stat_summary()</code> argument and specify that we’d like to
+compute and represent the mean of each group as a red point on our chart.</p>
+<pre class="r"><code>ggplot(data = bone, aes(x = zyg, y = age)) +
+  stat_summary(geom = &quot;errorbar&quot;,
+               fun.data = mean_cl_normal) +
+  stat_summary(geom = &quot;point&quot;,
+               fun.y = mean,
+               color = &quot;red&quot;,
+               size = 6)</code></pre>
+<p><img src="/posts/confidence_intervals_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><code>mean_cl_normal</code> computes a 95% confidence interval by default. If we want to calculate the 99% confidence interval, we make use of the <code>fun.args</code> parameter. This allows us to pass additional arguments to the function we’ve called, in the form of a list. Below, we compute the 99% confidence interval:</p>
+<pre class="r"><code>ggplot(data = bone, aes(x = zyg, y = age)) +
+  stat_summary(geom = &quot;errorbar&quot;,
+               fun.data = mean_cl_normal,
+               fun.args=list(conf.int=0.99)) +
+  stat_summary(geom = &quot;point&quot;,
+               fun.y = mean,
+               color = &quot;red&quot;,
+               size = 6)</code></pre>
+<p><img src="/posts/confidence_intervals_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="confidence-intervals-1" class="section level1">
+<h1>Confidence Intervals</h1>
+<center>
+<img src="img/conf.jpg" align="middle" height="450" width="750" margin="0 auto" />
+</center>
+<p>When we compute two-sided confidence intervals, we are computing the area between the two tails of the distribution. When we compute one-sided confidence intervals, we are computing the area from one tail up to (but not including) another tail. So, a one-sided 95% confidence interval includes more of the tail than a two-sided 95% confidence interval.</p>
+<div id="two-sided" class="section level2">
+<h2>Two-sided</h2>
+<div id="for-a-variable" class="section level3">
+<h3>For a Variable</h3>
+<p>Let’s compute 95% and 99% confidence intervals for the mean population age (<code>bone$age</code>). We’ll use the <code>ci.mean()</code> command from <code>Publish</code>. By default, this command produces a 95% confidence interval.</p>
+<pre class="r"><code>ci.mean(bone$age)</code></pre>
+<pre><code>Error in ci.mean(bone$age): could not find function &quot;ci.mean&quot;</code></pre>
+<p>Now, let’s compute the 99% confidence interval. Remember that <span class="math inline">\(\alpha\)</span> is our significance level (i.e. the probability of incorrectly rejecting the null hypothesis). To obtain a 99% confidence interval, we simply set <span class="math inline">\(\alpha = 0.01\)</span>, since <span class="math inline">\(1 - confidence~level = \alpha\)</span>.</p>
+<pre class="r"><code>ci.mean(bone$age, alpha = 0.01)</code></pre>
+<pre><code>Error in ci.mean(bone$age, alpha = 0.01): could not find function &quot;ci.mean&quot;</code></pre>
+</div>
+<div id="for-groups-within-a-variable" class="section level3">
+<h3>For Groups within a Variable</h3>
+<p>Let’s compute a 95% confidence interval of the mean population age for fraternal and identical twins, denoted by the <code>zyg</code> variable. Remember, the <code>~</code> is R’s way of saying “by”&quot; (i.e. “compute this by this”). So here, we compute <code>age</code> by <code>zyg</code>. Because we’ve only supplied R with the variables of interest, but haven’t supplied the actual data set, we do so using the <code>data</code> argument.</p>
+<pre class="r"><code>ci.mean(age ~ zyg, data = bone)</code></pre>
+<pre><code>Error in ci.mean(age ~ zyg, data = bone): could not find function &quot;ci.mean&quot;</code></pre>
+<p>Theoretically, we could compute confidence intervals for age based on twin status and any other number of predictors. For example:</p>
+<pre class="r"><code>ci.mean(age ~ zyg + men1, data = bone)</code></pre>
+<pre><code>Error in ci.mean(age ~ zyg + men1, data = bone): could not find function &quot;ci.mean&quot;</code></pre>
+</div>
+</div>
+<div id="one-sided" class="section level2">
+<h2>One-sided</h2>
+<p>When we use z- or t-critical values for a one-sided 95% confidence limit, the critical values that we use are a bit different. In this instance, we are putting all 5% of the area into the lower or upper tail of the distribution depending on whether we want to calculate a one-sided lower bound or upper bound limit. For a 2-sided 95% confidence interval, we split up the area and put 2.5% in the lower and upper tails of the distribution. Refer to the image above to help visualize this idea.</p>
+<p>Therefore, to calculate a one-sided 95% confidence bound (lower or upper), we use the z- or t-critical value for a 2-sided 90% confidence limit. Let’s say that we want to calculate a one-sided 95% upper confidence bound of age by twin type (fraternal or identical).</p>
+<pre class="r"><code>ci.mean(age ~ zyg, data = bone, alpha = 0.10)</code></pre>
+<pre><code>Error in ci.mean(age ~ zyg, data = bone, alpha = 0.1): could not find function &quot;ci.mean&quot;</code></pre>
+<p>Here, we are only interested in the upper confidence bounds. We can interpret this output as – “Average age of the identical twins is approximately 51 years and we are 95% confident that it is, at most, 55 years”. Similarly, we can interpret the mean age of fraternal twins as – “Average age of the fraternal twins is approximately 46 years and we are 95% confident that it is, at most, 51 years.”</p>
+</div>
+</div>
+
+      </div>
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "aaroncoyner" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © Aaron Coyner 2019. All Rights Reserved.
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>

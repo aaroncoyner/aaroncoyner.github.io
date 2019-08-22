@@ -1,0 +1,132 @@
+---
+title: "Tutorial: Analysis of Variance (ANOVA)"
+author: "Aaron Coyner"
+date: "2018-09-18"
+#categories: []
+tags: ['R', 'Statistics']
+---
+
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(error = TRUE, comment = NA, warning = FALSE, message = FALSE, tidy = FALSE, echo = TRUE)
+```
+
+### Acknowledgements
+This tutorial was adapted from [Amber Lin's](https://ohsu-psu-sph.org/faculty-directory/name/amber-lin/) tutorials for PHPM 524: Introduction to Biostatistics at Oregon Health & Science University.
+
+# Overview
+This tutorial provides an introduction to the analysis of variance (ANOVA).
+The data set we will use contains serum concentrations of high-density lipoprotein cholesterol (HDL-C) from samples of adult males who are non-smokers, light smokers, moderate smokers, and heavy smokers.
+We will assess whether these data provide sufficient evidence to indicate that the four populations differ with respect to mean serum concentration of HDL-C.  
+
+Data sets and Rmarkdown files are available at: https://github.com/aaroncoyner/biostats-tutorials
+
+
+
+
+
+# Setup
+
+## Install Packages 
+
+Do this once per machine.
+
+```{r install_packages_demo, eval=FALSE}
+install.packages('readr')
+install.packages('tidyverse')
+install.packages('skimr')
+```
+
+## Load Packages 
+
+Do this once per R session.
+
+```{r load_packages_demo}
+library(readr)
+library(tidyverse)
+library(skimr)
+```
+
+## Import Data 
+
+- Copy `smoker_hdl.csv` to an easily accessible location
+- Use `read_csv()` from the `readr` package to import the csv
+- The argument supplied to `read_csv()` is the url or path to the dataset
+- Finally, assign the data to an R object using `<-` and call that object something simple like `smoker`
+
+```{r}
+smoker <- read_csv('data/smoker_hdl.csv')
+```
+
+
+# Initial Data Analysis
+
+Use the `head()` function in your console to briefly check the structure of the data set.
+```{r head}
+head(smoker)
+```
+
+`head()` shows us that the data set contains individual observations for each subject per row. So, before we use `skim()` to compute summary statistics, we need to organize these data *by group*, where group is the person's smoking status. Then we can examine the mean, standard deviation, and quartiles for each variable, plus get some mini-histograms using `skim()`.
+```{r}
+smoker %>%
+  group_by(status) %>%
+  skim()
+```
+
+Looking at the summary statistics for this data set, namely the mean and standard error for each group, we can see that there does appear to be a difference between means. But we need to show this statistically.
+
+
+# Visualization
+
+## Box Plots
+
+We can also examine box plots of this data. Box plots show the 25th percentile (bottom of the box), median (middle line), and 75th percentile (top of the box). The "whiskers" represent variability outside the upper and lower quartiles, and individual dots represent outliers. It's a good way of showing the distribution and the skewness of the data. Again, it appears that there is a difference between groups, but we still need to confirm this statistically!
+
+```{r}
+ggplot(smoker, aes(x = reorder(status, HDL, median), y = HDL, fill = status)) +
+  geom_boxplot() +
+  ggtitle('Boxplot of mean HDL-C by Smoker Status') +
+  xlab('Smoking Status') +
+  ylab('HDL-C [mg/dL]')
+```
+
+**NOTE:** `x = reorder(status, HDL, median)` simply tells R that we wish to have our x-axis be `status`, but to order groups by the values of the medians of `HDL`. Also, note that there is an outlier in the `light` group.
+
+## Density Plots
+Let's also examine a density estimation plot (it's similar to a histogram of the raw data). From `?geom_density`:
+
+> "Computes and draws kernel density estimate, which is a smoothed version of the histogram. This is a useful alternative to the histogram for continuous data that comes from an underlying smooth distribution."
+
+Rather than plotting each density curve on a separate plot, we overlay them so we can examine to what degree they differ. So that we can see curves that are potentially hidden by others, we set `alpha` equal to 0.5 (0: transparent, 1: opaque).
+```{r}
+ggplot(smoker, aes(x = HDL, fill = status)) +
+  geom_density(alpha = 0.5)
+```
+
+Again, it appears that these data have different means, but we still need to confirm this statistically!
+
+# Analysis of Variance
+
+So, let's perform a one-way ANOVA to test whether the mean HDL-C levels are affected by a person's smoking status.
+
+```{r}
+anova_results <- aov(HDL ~ status, data = smoker)
+summary(anova_results)
+```
+
+The F-test is highly significant ($p=1.01 *e^{-07}$), meaning that at least one group’s mean HDL is significantly different from the others'. Performing post-hoc tests will help determine where the group differences lie. Here we calculate pairwise comparisons between group levels using Bonferroni's correction for multiple testing.
+
+```{r}
+pairwise.t.test(smoker$HDL, smoker$status, p.adjust = "bonferroni")
+```
+
+The results show that the difference in mean HDL is *not significantly different*
+between light and moderate smokers ($p=0.14480$), however the differences between all other groups *is significantly different* ($p<0.05$). 
+
+Another multiple comparisons procedure we can use is Tukey's Honest Significance Test (HSD). The function `TukeyHSD()` creates a set of confidence intervals on the differences between means with the specified family-wise probability of coverage.
+```{r}
+TukeyHSD(anova_results)
+```
+
+The results of this test confirm the results of the previous test &mdash; there is not a significant difference between the means of HDL for light and moderate smokers ($p \ge 0.05$), but all other groups *are* significantly different ($p<0.05$).
