@@ -6,15 +6,24 @@
     <description>Recent content in Tags on Aaron Coyner, PhD(C)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 04 Oct 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 22 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://aaroncoyner.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Interpretability</title>
+      <link>https://aaroncoyner.github.io/tags/interpretability/</link>
+      <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://aaroncoyner.github.io/tags/interpretability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>R</title>
       <link>https://aaroncoyner.github.io/tags/r/</link>
-      <pubDate>Thu, 04 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://aaroncoyner.github.io/tags/r/</guid>
       <description></description>
@@ -23,7 +32,7 @@
     <item>
       <title>Statistics</title>
       <link>https://aaroncoyner.github.io/tags/statistics/</link>
-      <pubDate>Thu, 04 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://aaroncoyner.github.io/tags/statistics/</guid>
       <description></description>

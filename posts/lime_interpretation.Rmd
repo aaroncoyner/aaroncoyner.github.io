@@ -2,6 +2,7 @@
 title: "Global and Local Model Interpretation"
 author: "[Aaron Coyner](https://github.com/aaroncoyner/)"
 date: "`r Sys.Date()`"
+tags: ['R', 'Statistics', 'Interpretability']
 output: 
   html_notebook:
     toc: true
