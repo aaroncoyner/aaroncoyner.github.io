@@ -95,7 +95,6 @@
 </nav>
 
 
-
 <script src="//yihui.name/js/math-code.js"></script>
 <script async
 src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
@@ -120,7 +119,7 @@ src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
             </span>
             <span class="reading-time">
               <i class="fas fa-clock"></i>
-              10 minutes read
+              9 minutes read
             </span>
           </div>
           
@@ -161,10 +160,12 @@ install.packages(&#39;rcompanion&#39;)</code></pre>
 <h2>Load Packages</h2>
 <p>Do this once per R session.</p>
 <pre class="r"><code>library(readr)
-library(skimr)
-library(dplyr)
+library(skimr)</code></pre>
+<pre><code>Error in library(skimr): there is no package called &#39;skimr&#39;</code></pre>
+<pre class="r"><code>library(dplyr)
 library(ggplot2)
 library(rcompanion)</code></pre>
+<pre><code>Error in library(rcompanion): there is no package called &#39;rcompanion&#39;</code></pre>
 </div>
 <div id="import-data" class="section level2">
 <h2>Import Data</h2>
@@ -196,19 +197,7 @@ Does the number <code>1</code> for <code>SEX</code> represent males or females? 
 <pre class="r"><code>body$SEX = as.factor(body$SEX)</code></pre>
 <p><code>head()</code> provides us with a brief overview of the structure of our data set. Let’s use <code>skim()</code> to compute some summary statistics, such as the mean, standard deviation, and quartiles of each variable. We notice that the means of <code>DXA</code> and <code>ST</code> really aren’t all that different, but we must determine this statistically.</p>
 <pre class="r"><code>skim(body)</code></pre>
-<pre><code>Skim summary statistics
- n obs: 98 
- n variables: 4 
-
-── Variable type:factor ───────────────────────────────────────────────────────────────────────
- variable missing complete  n n_unique          top_counts ordered
-      SEX       0       98 98        2 0: 49, 1: 49, NA: 0   FALSE
-
-── Variable type:numeric ──────────────────────────────────────────────────────────────────────
- variable missing complete  n mean   sd   p0  p25  p50  p75  p100     hist
-       BR       1       97 98 5.66 3.44 1.24 3.67 4.65 6.54 21.74 ▆▇▂▁▁▁▁▁
-      DXA       0       98 98 4.78 3    1.22 2.94 4.08 5.29 20.04 ▇▇▂▁▁▁▁▁
-       ST       0       98 98 4.99 3.09 2.09 3.13 4.01 5.46 19.56 ▇▃▁▁▁▁▁▁</code></pre>
+<pre><code>Error in skim(body): could not find function &quot;skim&quot;</code></pre>
 </div>
 <div id="visualization" class="section level1">
 <h1>Visualization</h1>
@@ -321,29 +310,7 @@ mean of the differences
 <p>It’s pretty easy to see that neither <code>SEX == 0</code> nor <code>SEX == 1</code> fall on a straight line, suggesting that <code>DXA</code> is <em>not</em> normally distributed. However, we can get around this.</p>
 <p>We will transform <code>DXA</code> by conducting Tukey’s Ladder of Powers to produce a more-normally distributed vector of values. As we can see from the histogram and Q-Q plot, <code>DXA</code> now appears to be normally distributed.</p>
 <pre class="r"><code>transformTukey(body$DXA, plotit=TRUE, start=-1, end=2, int=0.5)</code></pre>
-<p><img src="https://aaroncoyner.github.io/posts/R_Tutorial_tTest_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
-<pre><code>
-  lambda      W Shapiro.p.value
-3      0 0.9828          0.2284
-
-if (lambda &gt;  0){TRANS = x ^ lambda} 
-if (lambda == 0){TRANS = log(x)} 
-if (lambda &lt;  0){TRANS = -1 * x ^ lambda} </code></pre>
-<p><img src="https://aaroncoyner.github.io/posts/R_Tutorial_tTest_files/figure-html/unnamed-chunk-8-2.png" width="672" /><img src="https://aaroncoyner.github.io/posts/R_Tutorial_tTest_files/figure-html/unnamed-chunk-8-3.png" width="672" /></p>
-<pre><code> [1] 1.2942613 1.3654282 2.0189216 1.8312526 2.3598252 2.2592182 0.8929812
- [8] 1.2708555 0.2045722 0.8167797 0.9004459 1.4077378 1.4315067 1.0202543
-[15] 1.4984617 1.4428873 1.0816696 1.0656413 1.7016706 1.2851472 1.6741577
-[22] 1.1737507 1.7007218 1.5279458 1.0364177 1.4269323 1.3186577 1.5889086
-[29] 1.3644577 2.4948240 2.7377320 2.9978999 2.2544447 1.0022482 1.3604893
-[36] 1.5947506 1.2740491 1.9137263 1.1836578 0.4354769 0.7618800 1.4325575
-[43] 0.6862736 1.2213018 0.8391073 0.6451117 1.3282414 0.8545004 1.5432340
-[50] 1.5530792 1.4527607 0.9731246 0.9948431 1.5292685 1.1280416 1.6200415
-[57] 1.9236791 2.4029190 1.4958212 0.9101117 2.0109352 2.1403014 1.8952482
-[64] 1.4708193 1.2895632 1.5230736 0.8306457 1.2865845 0.8347335 1.4684502
-[71] 1.4042816 0.5837786 1.4213719 1.7073991 1.1670183 1.6426212 1.3766227
-[78] 1.3001372 1.4700149 1.0789876 1.6170092 2.0680646 0.5778486 1.2419331
-[85] 2.4354012 0.2001615 1.0775589 1.5460933 2.0946626 2.3040041 0.9399291
-[92] 1.3262524 1.4364883 1.9071693 1.2547895 0.8101744 1.9725660 1.8623732</code></pre>
+<pre><code>Error in transformTukey(body$DXA, plotit = TRUE, start = -1, end = 2, : could not find function &quot;transformTukey&quot;</code></pre>
 <p>So, what have we done here? First, we have tested various values of <span class="math inline">\(\lambda\)</span> ranging from -1 to 2 at intervals of 0.5. When <span class="math inline">\(\lambda &lt; 0\)</span>, we transform our data via <span class="math inline">\(-1 * x ^ \lambda\)</span>, when <span class="math inline">\(\lambda = 0\)</span>, we transform our data via <span class="math inline">\(log(x)\)</span>, and when <span class="math inline">\(\lambda &gt; 0\)</span>, we transform our data via <span class="math inline">\(x ^ \lambda\)</span>. This configuration tests the following transforms: <span class="math inline">\(-1/x, -1/\sqrt(x), log(x), \sqrt(x), x,~and~x^2\)</span>.</p>
 <p>The output of this function tells us that method 3, where <span class="math inline">\(\lambda = 0\)</span>, maximizes the Shapiro-Wilks W statistic. In English, this means that a log-transform of this vector will produce a more-normal distribution.</p>
 <p>We can log transform <code>DXA</code> into a log base 2, log base 3, or log base 10 variable. For ease of interpretation it is not recommended that we use natural log. Here we will transform it into a log base 2 variable.</p>

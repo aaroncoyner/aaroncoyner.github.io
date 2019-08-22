@@ -95,7 +95,6 @@
 </nav>
 
 
-
 <script src="//yihui.name/js/math-code.js"></script>
 <script async
 src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
@@ -163,6 +162,7 @@ install.packages(&#39;skimr&#39;)</code></pre>
 <pre class="r"><code>library(readr)
 library(tidyverse)
 library(skimr)</code></pre>
+<pre><code>Error in library(skimr): there is no package called &#39;skimr&#39;</code></pre>
 </div>
 <div id="import-data" class="section level2">
 <h2>Import Data</h2>
@@ -192,22 +192,7 @@ library(skimr)</code></pre>
 <pre class="r"><code>smoker %&gt;%
   group_by(status) %&gt;%
   skim()</code></pre>
-<pre><code>Skim summary statistics
- n obs: 28 
- n variables: 2 
- group variables: status 
-
-── Variable type:numeric ──────────────────────────────────────────────────────────────────────
-    status variable missing complete n  mean   sd p0 p25 p50  p75 p100
-     heavy      HDL       0        7 7  3.29 1.8   1 2     3  4.5    6
-     light      HDL       0        7 7  8.29 1.6   5 8     9  9     10
-  moderate      HDL       0        7 7  6.14 1.68  4 5     6  7      9
- nonsmoker      HDL       0        7 7 10.86 1.57  9 9.5  11 12     13
-     hist
- ▃▇▁▃▃▁▃▃
- ▂▁▁▁▅▁▇▂
- ▃▇▁▃▇▁▁▃
- ▇▃▁▃▁▇▁▃</code></pre>
+<pre><code>Error in skim(.): could not find function &quot;skim&quot;</code></pre>
 <p>Looking at the summary statistics for this data set, namely the mean and standard error for each group, we can see that there does appear to be a difference between means. But we need to show this statistically.</p>
 </div>
 <div id="visualization" class="section level1">

@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Aaron Coyner, PhD(C)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 04 Oct 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 22 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://aaroncoyner.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Global and Local Model Interpretation</title>
+      <link>https://aaroncoyner.github.io/posts/lime_interpretation/</link>
+      <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://aaroncoyner.github.io/posts/lime_interpretation/</guid>
+      <description>Data Preparation First, we’ll load the necessary libraries and the Cardiovascular Disease Risk Dataset.
+## Install cvdRiskData using devtools::install_github(&amp;quot;laderast/cvdRiskData&amp;quot;) library(cvdRiskData) library(tidyverse) library(keras) library(lime) library(caret) library(ROCR) library(corrr) library(tidyquant) ## Set seed for repeatability set.seed(655) ## Load data from cvdRiskData package data(cvd_patient) ## Remove columns patientID, (binned) aged (i.e. 10-20, 21-30, etc.), and race cvd_patient &amp;lt;- select(cvd_patient, -patientID, -age, -race) summary(cvd_patient) ## htn treat smoking t2d gender numAge ## N:310265 N:358070 N:374322 N:393906 F:243138 Min.</description>
+    </item>
     
     <item>
       <title>R Tutorial: t-Tests</title>

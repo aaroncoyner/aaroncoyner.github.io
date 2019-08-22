@@ -97,7 +97,6 @@ Data Set 1: “These data appeared in a paper which reported the carbon monoxide
 </nav>
 
 
-
 <script src="//yihui.name/js/math-code.js"></script>
 <script async
 src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
@@ -122,7 +121,7 @@ src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
             </span>
             <span class="reading-time">
               <i class="fas fa-clock"></i>
-              10 minutes read
+              9 minutes read
             </span>
           </div>
           
@@ -166,6 +165,7 @@ install.packages(&#39;skimr&#39;)</code></pre>
 <pre class="r"><code>library(readr)
 library(tidyverse)
 library(skimr)</code></pre>
+<pre><code>Error in library(skimr): there is no package called &#39;skimr&#39;</code></pre>
 </div>
 <div id="import-data" class="section level2">
 <h2>Import Data</h2>
@@ -200,14 +200,7 @@ hiv &lt;- read_csv(&#39;data/hiv.csv&#39;)</code></pre>
 <pre class="r"><code>smoker %&gt;% 
   select(-ID) %&gt;% 
   skim()</code></pre>
-<pre><code>Skim summary statistics
- n obs: 7 
- n variables: 2 
-
-── Variable type:numeric ──────────────────────────────────────────────────────────────────────
- variable missing complete n  mean    sd p0  p25 p50  p75 p100     hist
- BASELINE       0        7 7 56     8.64 40 53    58 61     66 ▃▁▁▃▃▃▇▃
-    WEEK1       0        7 7 68.14 11.68 52 61.5  64 76.5   85 ▃▃▇▁▁▃▃▃</code></pre>
+<pre><code>Error in skim(.): could not find function &quot;skim&quot;</code></pre>
 <p>Looking at the summary statistics for this data set, namely the mean and standard error for each group, we can see that there does appear to be a difference between means. But we need to show this statistically.</p>
 <p>Let’s generate a variable that will be useful for future analyses. We’ll compute the difference between <code>WEEK1</code> and <code>BASELINE</code> and name that variable <code>DIFF</code>.</p>
 <pre class="r"><code>smoker = smoker %&gt;%
@@ -324,9 +317,9 @@ W = 0.87746, p-value = 0.2154</code></pre>
 <p>Let us get familiar with our data by conducting a Shapiro-Wilk test, and looking at histograms and box plots.</p>
 <p>We assess normality by conducting a Shapiro-Wilk test for each group.</p>
 <pre class="r"><code>shapiro.test(non_par_2$CD4[non_par_2$GROUP == 1])</code></pre>
-<pre><code>Error in stopifnot(is.numeric(x)): object &#39;non_par_2&#39; not found</code></pre>
+<pre><code>Error: object &#39;non_par_2&#39; not found</code></pre>
 <pre class="r"><code>shapiro.test(non_par_2$CD4[non_par_2$GROUP == 2])</code></pre>
-<pre><code>Error in stopifnot(is.numeric(x)): object &#39;non_par_2&#39; not found</code></pre>
+<pre><code>Error: object &#39;non_par_2&#39; not found</code></pre>
 <pre class="r"><code>ggplot(non_par_2, aes(x=CD4, fill=GROUP, color=GROUP)) +
   geom_histogram(bins=6, alpha=0.5, position=&quot;identity&quot;)</code></pre>
 <pre><code>Error in ggplot(non_par_2, aes(x = CD4, fill = GROUP, color = GROUP)): object &#39;non_par_2&#39; not found</code></pre>
