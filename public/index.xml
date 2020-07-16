@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aaron Coyner, PhD(C)</title>
+    <link>https://aaroncoyner.github.io/</link>
+    <description>Recent content on Aaron Coyner, PhD(C)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    
+	<atom:link href="https://aaroncoyner.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About Aaron</title>
+      <link>https://aaroncoyner.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aaroncoyner.github.io/about/</guid>
+      <description>Aaron is a National Library of Medicine Pre-doctoral Fellow studying Bioinformatics and Computational Biomedicine at Oregon Health &amp;amp; Science University (OHSU). He works closely with the i-ROP Consortium studying retinopathy of prematurity. His dissertation work centers around the implementation and use of machine learning algorithms, specifically deep learning, for retinal fundus image quality assessment and abnormal pathological findings for telemedicine applications.
+Prior to beginning his PhD, he received his Bachelor of Science in Biochemistry from Pacific Lutheran University in Tacoma, WA.</description>
+    </item>
+    
+  </channel>
+</rss>
