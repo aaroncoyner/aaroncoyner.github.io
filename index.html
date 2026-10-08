@@ -75,7 +75,7 @@
   <script>
     document.getElementById("yr").textContent = new Date().getFullYear();
 
-    const ME = "Coyner AS", LIMIT = 10;
+    const isMe = a => /^Coyner AS?$/.test(a), LIMIT = 10; // PubMed sometimes lists "Coyner A"
     const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
     fetch("data/publications.json").then(r => r.json()).then(({ publications, updated }) => {
       const box = document.getElementById("pubs"), btn = document.getElementById("more");
@@ -89,9 +89,9 @@
           if (list.length > 8) {
             const head = list.slice(0, 6);
             // Truncate, but keep my name visible if it falls in the hidden part.
-            authors = [...head, "…", ...(head.includes(ME) || !list.includes(ME) ? [] : [ME])];
+            authors = [...head, "…", ...(head.some(isMe) ? [] : list.filter(isMe))];
           }
-          const names = authors.map(a => a === ME ? "<b>Coyner AS</b>" : esc(a)).join(", ");
+          const names = authors.map(a => isMe(a) ? `<b>${esc(a)}</b>` : esc(a)).join(", ");
           html += `<div class="pub"><a class="title" href="https://pubmed.ncbi.nlm.nih.gov/${p.pmid}/" target="_blank" rel="noopener">${esc(p.title)}</a><div class="meta">${names}<br><i>${esc(p.journal)}</i>${p.doi ? ` · <a href="https://doi.org/${p.doi}" target="_blank" rel="noopener">DOI</a>` : ""}</div></div>`;
         });
         box.innerHTML = html;

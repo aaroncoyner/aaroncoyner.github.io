@@ -3,8 +3,8 @@
 import json, re, time, urllib.parse, urllib.request
 from pathlib import Path
 
-# Union of an author-name search and an ORCID search.
-QUERY = "(Coyner AS[Author]) OR (0000-0003-3261-1909[auid])"
+# Author-name search
+QUERY = "Coyner AS[Author]"
 EXCLUDE_PMIDS = set()  # add PMIDs of papers by other "Coyner AS" here
 ME = re.compile(r"^Coyner AS$")
 BASE = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"

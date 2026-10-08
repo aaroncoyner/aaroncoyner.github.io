@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-06",
+ "updated": "2026-10-07",
  "publications": [
   {
    "pmid": "42288327",
@@ -304,35 +304,6 @@
    "date": "2025/12/01",
    "year": "2025",
    "doi": "10.1016/j.jaapos.2025.104696"
-  },
-  {
-   "pmid": "41001491",
-   "title": "Deep learning-based prediction of cardiopulmonary disease in retinal images of premature infants",
-   "authors": [
-    "Singh P",
-    "Kumar S",
-    "Tyagi R",
-    "Young BK",
-    "Jordan BK",
-    "Scottoline B",
-    "Evers PD",
-    "Ostmo S",
-    "Coyner AS",
-    "Lin WC",
-    "Gupta A",
-    "Erdogmus D",
-    "Chan RP",
-    "McCourt EA",
-    "Barry JS",
-    "McEvoy CT",
-    "Chiang MF",
-    "Campbell JP",
-    "Kalpathy-Cramer J"
-   ],
-   "journal": "medRxiv",
-   "date": "2025/09/19",
-   "year": "2025",
-   "doi": "10.1101/2025.09.18.25336004"
   },
   {
    "pmid": "39724290",
@@ -664,33 +635,6 @@
    "date": "2023/06/01",
    "year": "2023",
    "doi": "10.1001/jamaophthalmol.2023.1310"
-  },
-  {
-   "pmid": "37292936",
-   "title": "Genome-wide association identifies novel ROP risk loci in a multi-ethnic cohort",
-   "authors": [
-    "Rotter J",
-    "Li X",
-    "Owen LA",
-    "Taylor K",
-    "Ostmo S",
-    "Chen YI",
-    "Coyner A",
-    "Sonmez K",
-    "Hartnett ME",
-    "Guo X",
-    "Ipp E",
-    "Roll K",
-    "Genter P",
-    "Chan RVP",
-    "DeAngelis M",
-    "Chiang M",
-    "Campbell JP"
-   ],
-   "journal": "Res Sq",
-   "date": "2023/05/16",
-   "year": "2023",
-   "doi": "10.21203/rs.3.rs-2855404/v1"
   },
   {
    "pmid": "36656578",
