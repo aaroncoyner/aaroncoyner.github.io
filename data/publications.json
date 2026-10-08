@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-07",
+ "updated": "2026-10-08",
  "publications": [
   {
    "pmid": "42288327",
@@ -304,6 +304,35 @@
    "date": "2025/12/01",
    "year": "2025",
    "doi": "10.1016/j.jaapos.2025.104696"
+  },
+  {
+   "pmid": "41001491",
+   "title": "Deep learning-based prediction of cardiopulmonary disease in retinal images of premature infants",
+   "authors": [
+    "Singh P",
+    "Kumar S",
+    "Tyagi R",
+    "Young BK",
+    "Jordan BK",
+    "Scottoline B",
+    "Evers PD",
+    "Ostmo S",
+    "Coyner AS",
+    "Lin WC",
+    "Gupta A",
+    "Erdogmus D",
+    "Chan RP",
+    "McCourt EA",
+    "Barry JS",
+    "McEvoy CT",
+    "Chiang MF",
+    "Campbell JP",
+    "Kalpathy-Cramer J"
+   ],
+   "journal": "medRxiv",
+   "date": "2025/09/19",
+   "year": "2025",
+   "doi": "10.1101/2025.09.18.25336004"
   },
   {
    "pmid": "39724290",
