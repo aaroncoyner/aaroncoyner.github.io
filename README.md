@@ -4,10 +4,11 @@ Personal site, served by GitHub Pages at https://aaroncoyner.com. It is plain HT
 
 ## Layout
 
-- `index.html`: the page (bio, experience, publications, contact)
+- `index.html`: the page (bio, experience, publications)
 - `style.css`: styles; the palette is in `:root`
-- `assets/`: headshot
-- `data/publications.json`: publication list, generated (don't edit by hand)
+- `assets/`: headshot, CV, link-preview image (`og.jpg`), favicons
+- `data/publications.json`: publication list generated (don't edit by hand)
+- `data/scholar.json`: citation count and h-index shown above the list; Google Scholar has no API, so edit by hand and bump `as_of`
 - `scripts/update_publications.py`: pulls publications from PubMed
 - `.github/workflows/update-publications.yml`: runs the script every Monday and commits changes
 - `CNAME`: custom domain (managed by GitHub Pages)
@@ -17,7 +18,7 @@ Personal site, served by GitHub Pages at https://aaroncoyner.com. It is plain HT
 - **Text and roles:** edit `index.html` and push.
 - **Publications:** automatic. To refresh now, go to Actions → "Update publications" → Run workflow.
   If a paper by a different "Coyner AS" appears, add its PMID to `EXCLUDE_PMIDS` in the script.
-- **CV:** replace `cv.pdf` in the repo root.
+- **CV:** replace `assets/cv.pdf`.
 
 ## Previewing locally
 
